@@ -15,8 +15,12 @@ function App() {
     console.log(countryQuiz);
 
     function randomCountry() {
-        const country = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
-        console.log(country);
+        const random = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+        const random1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+        const random2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+        const random3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+        const random4 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+        console.log([random]);
     }
 
     return <h1>Country Quiz</h1>

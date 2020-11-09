@@ -29798,8 +29798,12 @@ function App() {
   console.log(countryQuiz);
 
   function randomCountry() {
-    const country = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
-    console.log(country);
+    const random = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const random1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const random2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const random3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const random4 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    console.log([random]);
   }
 
   return /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz");
@@ -29847,7 +29851,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50463" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54984" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
