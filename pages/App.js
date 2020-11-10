@@ -10,7 +10,7 @@ function App() {
         randomOption: [],
         isAnswer: "",
         goodGuess: 0,
-        backgroundColor: "white",
+        bgColor: {backgroundColor: '#fff'}
 
     });
 
@@ -42,12 +42,26 @@ function App() {
     console.log(randomCountry);
 
     function handleClick(e) {
-        console.log(e.target.value);
+        const winCountry = randomCountry.correctAnswer.name;
+        console.log(winCountry);
+        const userGuess = e.target.value;
+        console.log(userGuess);
+        if (winCountry === userGuess) {
+            // setRandomCountry({
+            //     bgColor: {backgroundColor: '#048938'}
+            // });
+            console.log("You are right");
+        } else {
+            // setRandomCountry({
+            //     bgColor: {backgroundColor: '#FF8A65'}
+            // })
+            console.log("Wrong guess");
+        }
     }
     return (
         <main>
             <h1>Country Quiz</h1>
-            <div>
+            <div style={randomCountry.bgColor}>
                 <p>Which country's capital city is <strong>{randomCountry.correctAnswer.capital}</strong>?</p>
 
                 <div>

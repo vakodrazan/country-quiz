@@ -29796,7 +29796,9 @@ function App() {
     randomOption: [],
     isAnswer: "",
     goodGuess: 0,
-    backgroundColor: "white"
+    bgColor: {
+      backgroundColor: '#fff'
+    }
   });
 
   async function fetchData() {
@@ -29830,10 +29832,27 @@ function App() {
   console.log(randomCountry);
 
   function handleClick(e) {
-    console.log(e.target.value);
+    const winCountry = randomCountry.correctAnswer.name;
+    console.log(winCountry);
+    const userGuess = e.target.value;
+    console.log(userGuess);
+
+    if (winCountry === userGuess) {
+      // setRandomCountry({
+      //     bgColor: {backgroundColor: '#048938'}
+      // });
+      console.log("You are right");
+    } else {
+      // setRandomCountry({
+      //     bgColor: {backgroundColor: '#FF8A65'}
+      // })
+      console.log("Wrong guess");
+    }
   }
 
-  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, randomCountry.correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, randomCountry.randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {
+    style: randomCountry.bgColor
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, randomCountry.correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, randomCountry.randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
@@ -29882,7 +29901,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62293" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49972" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
