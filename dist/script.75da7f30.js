@@ -29790,7 +29790,8 @@ const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function App() {
   const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]);
-  let [random, setRandom] = (0, _react.useState)([]);
+  let [correctAnswer, setCorrectAnswer] = (0, _react.useState)([]);
+  let [randomAnswer, setRandomAnswer] = (0, _react.useState)([]);
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29803,13 +29804,23 @@ function App() {
     fetchData();
   }, []);
 
-  function selectRandomCountry(quiz) {
-    console.log(quiz);
-    const randomOpt = quiz[Math.floor(Math.random() * countryQuiz.length)];
-    setRandom(randomOpt);
+  function selectRandomCountry(countryQuiz) {
+    const randomOpt = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const randomOpt1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const randomOpt2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    setCorrectAnswer(randomOpt);
+    const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3];
+    randomOptions.sort(() => {
+      return 0.5 - Math.random();
+    });
+    setRandomAnswer(randomOptions);
   }
 
-  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", null, random.name));
+  console.log(randomAnswer);
+  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, randomAnswer.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+    key: answer.numericCode
+  }, answer.name)))));
 }
 
 var _default = App;
