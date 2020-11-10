@@ -29825,7 +29825,11 @@ function App() {
     setRandomCountry({
       correctAnswer: randomOpt,
       randomOption: randomOptions,
-      isAnswer: ""
+      isAnswer: "",
+      goodGuess: 0,
+      bgColor: {
+        backgroundColor: '#fff'
+      }
     });
   }
 
@@ -29838,21 +29842,30 @@ function App() {
     console.log(userGuess);
 
     if (winCountry === userGuess) {
-      // setRandomCountry({
-      //     bgColor: {backgroundColor: '#048938'}
-      // });
+      setRandomCountry(prev => {
+        return { ...prev,
+          goodGuess: randomCountry.goodGuess + 1,
+          bgColor: {
+            backgroundColor: '#048938'
+          }
+        };
+      });
       console.log("You are right");
     } else {
-      // setRandomCountry({
-      //     bgColor: {backgroundColor: '#FF8A65'}
-      // })
+      setRandomCountry(prev => {
+        return { ...prev,
+          bgColor: {
+            backgroundColor: '#FF8A65'
+          }
+        };
+      });
       console.log("Wrong guess");
     }
   }
 
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {
     style: randomCountry.bgColor
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, randomCountry.correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, randomCountry.randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, randomCountry.correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", randomCountry.goodGuess), randomCountry.randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick

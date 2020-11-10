@@ -37,6 +37,8 @@ function App() {
             correctAnswer: randomOpt,
             randomOption: randomOptions,
             isAnswer: "",
+            goodGuess: 0,
+            bgColor: {backgroundColor: '#fff'}
         });
     }
     console.log(randomCountry);
@@ -47,14 +49,19 @@ function App() {
         const userGuess = e.target.value;
         console.log(userGuess);
         if (winCountry === userGuess) {
-            // setRandomCountry({
-            //     bgColor: {backgroundColor: '#048938'}
-            // });
+            setRandomCountry((prev) => {
+                return {
+                    ...prev,
+                    goodGuess: randomCountry.goodGuess + 1,
+                    bgColor: {backgroundColor: '#048938'}
+                }
+            });
             console.log("You are right");
         } else {
-            // setRandomCountry({
-            //     bgColor: {backgroundColor: '#FF8A65'}
-            // })
+            setRandomCountry((prev) => {return {
+                ...prev,
+                bgColor: {backgroundColor: '#FF8A65'}
+            }})
             console.log("Wrong guess");
         }
     }
@@ -65,10 +72,12 @@ function App() {
                 <p>Which country's capital city is <strong>{randomCountry.correctAnswer.capital}</strong>?</p>
 
                 <div>
+                    <p><strong>Score: </strong> {randomCountry.goodGuess}</p>
                     {randomCountry.randomOption.map(answer => (
                         <button key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
                     ))}
                 </div>
+                {/* <button className="rnd mui-btn mui-btn--raised" onClick={() => setRandomCountry(countryQuiz)}>Random</button> */}
             </div>
         </main>
     )
