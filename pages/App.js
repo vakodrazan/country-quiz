@@ -4,7 +4,6 @@ const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function App() {
     const [countryQuiz, setCountryQuiz] = useState([]);
-    // let [correctAnswer, setCorrectAnswer] = useState([]);
     let [randomCountry, setRandomCountry] = useState({
         correctAnswer: {},
         randomOption: [],
@@ -41,13 +40,10 @@ function App() {
             bgColor: {backgroundColor: '#fff'}
         });
     }
-    console.log(randomCountry);
 
     function handleClick(e) {
         const winCountry = randomCountry.correctAnswer.name;
-        console.log(winCountry);
         const userGuess = e.target.value;
-        console.log(userGuess);
         if (winCountry === userGuess) {
             setRandomCountry((prev) => {
                 return {

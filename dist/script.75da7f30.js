@@ -29789,8 +29789,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function App() {
-  const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]); // let [correctAnswer, setCorrectAnswer] = useState([]);
-
+  const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]);
   let [randomCountry, setRandomCountry] = (0, _react.useState)({
     correctAnswer: {},
     randomOption: [],
@@ -29833,13 +29832,9 @@ function App() {
     });
   }
 
-  console.log(randomCountry);
-
   function handleClick(e) {
     const winCountry = randomCountry.correctAnswer.name;
-    console.log(winCountry);
     const userGuess = e.target.value;
-    console.log(userGuess);
 
     if (winCountry === userGuess) {
       setRandomCountry(prev => {
