@@ -29824,7 +29824,7 @@ function Questions({
   return /*#__PURE__*/_react.default.createElement("div", null, random % 5 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
-  }), /*#__PURE__*/_react.default.createElement("p", null, "Which country's flag is this?")) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of"));
+  }), /*#__PURE__*/_react.default.createElement("p", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is the capital city of"));
 }
 
 var _default = Questions;
