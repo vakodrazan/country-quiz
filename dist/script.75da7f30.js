@@ -29798,7 +29798,6 @@ function App() {
     backgroundColor: '#fff'
   });
   const [isCorrect, setIsCorrect] = (0, _react.useState)(true);
-  const [newArr, setNewArr] = (0, _react.useState)([]);
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29853,16 +29852,12 @@ function App() {
     }
   }
 
-  function getNewRandom() {
-    selectRandomCountry(countryQuiz);
-  }
-
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
     className: "article",
     style: bgColor
-  }, /*#__PURE__*/_react.default.createElement("div", null, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
+  }, countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
   }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
@@ -29873,8 +29868,13 @@ function App() {
     value: answer.name,
     onClick: handleClick
   }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
-    onClick: getNewRandom
-  }, "Random") : null)));
+    onClick: () => setCountryQuiz(null)
+  }, "Random") : null) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => {
+      setIsCorrect(true);
+      fetchData();
+    }
+  }, "Try Again")))));
 }
 
 var _default = App;

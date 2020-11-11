@@ -10,7 +10,6 @@ function App() {
     const [goodGuess, setGoodGuess] = useState(0);
     const [bgColor, setBgColor] = useState({backgroundColor: '#fff'});
     const [isCorrect, setIsCorrect] = useState(true);
-    const [newArr, setNewArr] = useState([]);
 
     async function fetchData() {
         const res = await fetch(COUNTRY_URL);
@@ -56,32 +55,48 @@ function App() {
 
     }
 
-    function getNewRandom() {
-        selectRandomCountry(countryQuiz);
-    }
-
     return (
         <div className="container">
             <main>
                 <h1>Country Quiz</h1>
                 <article className="article" style={bgColor}>
-                    <div>
-                        {random % 3 === 0 
-                            ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
-                            : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
-                        }
-                    </div>
-                    <div>
-                        <p><strong>Score: </strong> {goodGuess}</p>
-                        <div className="options">
-                            {randomOption.map(answer => (
-                                <button className="option-btn" key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
-                            ))}
-                        </div>
-                    </div>
-                    {isCorrect === false 
-                    ? <button onClick={getNewRandom}>Random</button>
-                    : null
+                    {countryQuiz 
+                        ? (
+                            <>
+                                <div>
+                                    {random % 3 === 0 
+                                        ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                                        : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
+                                    }
+                                </div>
+                                <div>
+                                    <p><strong>Score: </strong> {goodGuess}</p>
+                                    <div className="options">
+                                        {randomOption.map(answer => (
+                                            <button className="option-btn" key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
+                                        ))}
+                                    </div>
+                                </div>
+                                {isCorrect === false 
+                                ? <button onClick={() => setCountryQuiz(null)}>Random</button>
+                                : null
+                                }
+                            </>
+                        ) 
+                        : <>
+                            <h1>Results</h1>
+                            <p>
+                                You got <span>{goodGuess}</span> score
+                            </p>
+                            <button
+                                onClick={() => {
+                                    setIsCorrect(true)
+                                    fetchData()
+                                }}
+                            >
+                                Try Again
+                            </button>
+                        </> 
                     }
                 </article>
             </main>
