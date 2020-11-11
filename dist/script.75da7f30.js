@@ -29830,7 +29830,9 @@ function Questions({
 
 var _default = Questions;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/Results.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"undraw_winners_ao2o 2.svg":[function(require,module,exports) {
+module.exports = "/undraw_winners_ao2o 2.9c095601.svg";
+},{}],"components/Results.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29839,6 +29841,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _undraw_winners_ao2o = _interopRequireDefault(require("../undraw_winners_ao2o 2.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29849,7 +29853,10 @@ function Results({
   setIsCorrect,
   fetchData
 }) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("img", {
+    src: _undraw_winners_ao2o.default,
+    alt: "Winner Adventure"
+  }), /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
     className: "recommendation-btn",
     onClick: () => {
       setIsCorrect(true);
@@ -29861,7 +29868,7 @@ function Results({
 
 var _default = Results;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"pages/useCountryQuiz.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../undraw_winners_ao2o 2.svg":"undraw_winners_ao2o 2.svg"}],"pages/useCountryQuiz.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
