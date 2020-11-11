@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Questions from "../components/Questions";
 
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
@@ -75,16 +76,7 @@ function App() {
                     {countryQuiz 
                         ? (
                             <>
-                                <div>
-                                    {random % 5 === 0 
-                                        ? 
-                                        <div> 
-                                            <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
-                                            <p>Which country's flag is this?</p>
-                                        </div>
-                                        : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
-                                    }
-                                </div>
+                                <Questions random={random} correctAnswer={correctAnswer} />
                                 <div>
                                     <p><strong>Score: </strong> {goodGuess}</p>
                                     <div className="options">
