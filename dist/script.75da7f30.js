@@ -29830,17 +29830,21 @@ function App() {
       setGoodGuess(prevGuess => prevGuess + 1);
       setBgColor({
         backgroundColor: '#048938'
-      });
-      setTimeout(() => {
-        setBgColor({
-          backgroundColor: '#fff'
-        });
-      }, 2000);
+      }); // setTimeout(() => {
+      //     setBgColor({backgroundColor: '#fff'})
+      // }, 2000);
     } else {
       setBgColor({
         backgroundColor: '#FF8A65'
       });
     }
+
+    setTimeout(() => {
+      selectRandomCountry(countryQuiz);
+      setBgColor({
+        backgroundColor: '#fff'
+      });
+    }, 2000);
   }
 
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {

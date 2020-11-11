@@ -38,12 +38,18 @@ function App() {
         if (winCountry === userGuess) {
             setGoodGuess(prevGuess => prevGuess + 1);
             setBgColor({backgroundColor: '#048938'})
-            setTimeout(() => {
-                setBgColor({backgroundColor: '#fff'})
-            }, 2000);
+            // setTimeout(() => {
+            //     setBgColor({backgroundColor: '#fff'})
+            // }, 2000);
         } else {
             setBgColor({backgroundColor: '#FF8A65'})
         }
+
+        setTimeout(()=>{
+            selectRandomCountry(countryQuiz);
+            setBgColor({backgroundColor: '#fff'});
+        }, 2000)
+    
     }
     return (
         <main>
