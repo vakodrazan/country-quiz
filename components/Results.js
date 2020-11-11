@@ -9,6 +9,7 @@ function Results({goodGuess, setGoodGuess, setIsCorrect, fetchData}) {
                 You got <span>{goodGuess}</span> correct answers
             </p>
             <button
+                className="recommendation-btn"
                 onClick={() => {
                     setIsCorrect(true)
                     fetchData()
