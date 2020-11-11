@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AnswerOptions from "../components/AnswerOptions";
 import Questions from "../components/Questions";
 
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
@@ -77,18 +78,13 @@ function App() {
                         ? (
                             <>
                                 <Questions random={random} correctAnswer={correctAnswer} />
-                                <div>
-                                    <p><strong>Score: </strong> {goodGuess}</p>
-                                    <div className="options">
-                                        {randomOption.map(answer => (
-                                            <button className="option option-btn" key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
-                                        ))}
-                                    </div>
-                                </div>
-                                {isCorrect === false 
-                                ? <button onClick={() => setCountryQuiz(null)}>Random</button>
-                                : null
-                                }
+                                <AnswerOptions 
+                                    goodGuess={goodGuess} 
+                                    randomOption={randomOption} 
+                                    isCorrect={isCorrect}
+                                     handleClick={handleClick} 
+                                    setCountryQuiz={setCountryQuiz} 
+                                />
                             </>
                         ) 
                         : <>

@@ -29772,7 +29772,40 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"components/Questions.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"components/AnswerOptions.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function AnswerOptions({
+  goodGuess,
+  randomOption,
+  isCorrect,
+  handleClick,
+  setCountryQuiz
+}) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
+    className: "options"
+  }, randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+    className: "option option-btn",
+    key: answer.numericCode,
+    value: answer.name,
+    onClick: handleClick
+  }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => setCountryQuiz(null)
+  }, "Random") : null);
+}
+
+var _default = AnswerOptions;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/Questions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29805,6 +29838,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _AnswerOptions = _interopRequireDefault(require("../components/AnswerOptions"));
 
 var _Questions = _interopRequireDefault(require("../components/Questions"));
 
@@ -29888,16 +29923,13 @@ function App() {
   }, countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Questions.default, {
     random: random,
     correctAnswer: correctAnswer
-  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
-    className: "options"
-  }, randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
-    className: "option option-btn",
-    key: answer.numericCode,
-    value: answer.name,
-    onClick: handleClick
-  }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => setCountryQuiz(null)
-  }, "Random") : null) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
+  }), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, {
+    goodGuess: goodGuess,
+    randomOption: randomOption,
+    isCorrect: isCorrect,
+    handleClick: handleClick,
+    setCountryQuiz: setCountryQuiz
+  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       setIsCorrect(true);
       fetchData();
@@ -29907,7 +29939,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../components/Questions":"components/Questions.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Questions":"components/Questions.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
