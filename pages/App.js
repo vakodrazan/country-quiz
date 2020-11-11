@@ -49,7 +49,7 @@ function App() {
         <main>
             <h1>Country Quiz</h1>
             <div style={bgColor}>
-                <p>Which country's capital city is <strong>{correctAnswer.capital}</strong>?</p>
+                <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
                 <div>
                     <p><strong>Score: </strong> {goodGuess}</p>
                     {randomOption.map(answer => (

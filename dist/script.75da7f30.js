@@ -29845,7 +29845,7 @@ function App() {
 
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {
     style: bgColor
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
@@ -29896,7 +29896,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54371" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49938" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
