@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 function useCountryQuiz() {
+    // All the variables
     const [countryQuiz, setCountryQuiz] = useState([]);
     let [randomOption, setRandomOption] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState({});
@@ -9,6 +10,7 @@ function useCountryQuiz() {
     const [goodGuess, setGoodGuess] = useState(0);
     const [isCorrect, setIsCorrect] = useState(true);
 
+    // Fetch the data from the API
     async function fetchData() {
         const res = await fetch(COUNTRY_URL);
         const data = await res.json();
@@ -20,6 +22,7 @@ function useCountryQuiz() {
         fetchData();
     }, []);
 
+    // Get the list randomly
     function selectRandomCountry(countryQuiz) {
         const randomOpt = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
         const randomOpt1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
@@ -32,6 +35,7 @@ function useCountryQuiz() {
         setRandom(Math.floor(Math.random() * 5));
     }
 
+    // Disabled the button after choosing the answer
     const disableAll = () => {
         let opt = document.getElementsByClassName("option");
         for (let i = 0; i < 4; i++) {
@@ -72,6 +76,7 @@ function useCountryQuiz() {
         goodGuess,
         randomOption,
         isCorrect,
+        setGoodGuess,
         setCountryQuiz,
         setIsCorrect,
         handleClick,

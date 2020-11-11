@@ -29829,7 +29829,7 @@ function Questions({
 
 var _default = Questions;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/TryAgain.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"components/Results.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29841,20 +29841,23 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function TryAgain({
+// Get this result when the guess is wrong
+function Results({
   goodGuess,
+  setGoodGuess,
   setIsCorrect,
   fetchData
 }) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       setIsCorrect(true);
       fetchData();
+      setGoodGuess(0);
     }
   }, "Try Again"));
 }
 
-var _default = TryAgain;
+var _default = Results;
 exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"pages/useCountryQuiz.js":[function(require,module,exports) {
 "use strict";
@@ -29869,12 +29872,13 @@ var _react = require("react");
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function useCountryQuiz() {
+  // All the variables
   const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]);
   let [randomOption, setRandomOption] = (0, _react.useState)([]);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({});
   const [random, setRandom] = (0, _react.useState)(0);
   const [goodGuess, setGoodGuess] = (0, _react.useState)(0);
-  const [isCorrect, setIsCorrect] = (0, _react.useState)(true);
+  const [isCorrect, setIsCorrect] = (0, _react.useState)(true); // Fetch the data from the API
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29885,7 +29889,7 @@ function useCountryQuiz() {
 
   (0, _react.useEffect)(() => {
     fetchData();
-  }, []);
+  }, []); // Get the list randomly
 
   function selectRandomCountry(countryQuiz) {
     const randomOpt = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
@@ -29899,7 +29903,8 @@ function useCountryQuiz() {
     });
     setRandomOption(randomOptions);
     setRandom(Math.floor(Math.random() * 5));
-  }
+  } // Disabled the button after choosing the answer
+
 
   const disableAll = () => {
     let opt = document.getElementsByClassName("option");
@@ -29933,7 +29938,7 @@ function useCountryQuiz() {
     }
   }
 
-  return [countryQuiz, random, correctAnswer, goodGuess, randomOption, isCorrect, setCountryQuiz, setIsCorrect, handleClick, fetchData];
+  return [countryQuiz, random, correctAnswer, goodGuess, randomOption, isCorrect, setGoodGuess, setCountryQuiz, setIsCorrect, handleClick, fetchData];
 }
 
 var _default = useCountryQuiz;
@@ -29952,7 +29957,7 @@ var _AnswerOptions = _interopRequireDefault(require("../components/AnswerOptions
 
 var _Questions = _interopRequireDefault(require("../components/Questions"));
 
-var _TryAgain = _interopRequireDefault(require("../components/TryAgain"));
+var _Results = _interopRequireDefault(require("../components/Results"));
 
 var _useCountryQuiz = _interopRequireDefault(require("./useCountryQuiz"));
 
@@ -29963,7 +29968,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function App() {
-  const [countryQuiz, random, correctAnswer, goodGuess, randomOption, isCorrect, setCountryQuiz, setIsCorrect, handleClick, fetchData] = (0, _useCountryQuiz.default)();
+  const [countryQuiz, random, correctAnswer, goodGuess, randomOption, isCorrect, setGoodGuess, setCountryQuiz, setIsCorrect, handleClick, fetchData] = (0, _useCountryQuiz.default)();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
@@ -29977,8 +29982,9 @@ function App() {
     isCorrect: isCorrect,
     handleClick: handleClick,
     setCountryQuiz: setCountryQuiz
-  })) : /*#__PURE__*/_react.default.createElement(_TryAgain.default, {
+  })) : /*#__PURE__*/_react.default.createElement(_Results.default, {
     goodGuess: goodGuess,
+    setGoodGuess: setGoodGuess,
     setIsCorrect: setIsCorrect,
     fetchData: fetchData
   }))));
@@ -29986,7 +29992,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Questions":"components/Questions.js","../components/TryAgain":"components/TryAgain.js","./useCountryQuiz":"pages/useCountryQuiz.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Questions":"components/Questions.js","../components/Results":"components/Results.js","./useCountryQuiz":"pages/useCountryQuiz.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

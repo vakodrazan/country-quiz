@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AnswerOptions from "../components/AnswerOptions";
 import Questions from "../components/Questions";
-import TryAgain from "../components/TryAgain";
+import Results from "../components/Results";
 import useCountryQuiz from "./useCountryQuiz";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         goodGuess,
         randomOption,
         isCorrect,
+        setGoodGuess,
         setCountryQuiz,
         setIsCorrect,
         handleClick,
@@ -35,8 +36,9 @@ function App() {
                                 />
                             </>
                         ) 
-                        : <TryAgain 
+                        : <Results 
                             goodGuess={goodGuess} 
+                            setGoodGuess={setGoodGuess}
                             setIsCorrect={setIsCorrect} 
                             fetchData={fetchData} 
                         /> 

@@ -1,16 +1,18 @@
 import React from "react";
 
-function TryAgain({goodGuess, setIsCorrect, fetchData}) {
+// Get this result when the guess is wrong
+function Results({goodGuess, setGoodGuess, setIsCorrect, fetchData}) {
     return (
         <>
             <h2>Results</h2>
             <p>
-                You got <span>{goodGuess}</span> score
+                You got <span>{goodGuess}</span> correct answers
             </p>
             <button
                 onClick={() => {
                     setIsCorrect(true)
                     fetchData()
+                    setGoodGuess(0)
                 }}
             >
                 Try Again
@@ -19,4 +21,4 @@ function TryAgain({goodGuess, setIsCorrect, fetchData}) {
     )
 }
 
-export default TryAgain;
+export default Results;
