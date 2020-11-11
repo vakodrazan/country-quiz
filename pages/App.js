@@ -4,14 +4,11 @@ const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function App() {
     const [countryQuiz, setCountryQuiz] = useState([]);
-    let [randomCountry, setRandomCountry] = useState({
-        correctAnswer: {},
-        randomOption: [],
-        isAnswer: "",
-        goodGuess: 0,
-        bgColor: {backgroundColor: '#fff'}
-
-    });
+    let [randomOption, setRandomOption] = useState([]);
+    const [correctAnswer, setCorrectAnswer] = useState({});
+    const [isAnswer, setIsAnswer] = useState("");
+    const [goodGuess, setGoodGuess] = useState(0);
+    const [bgColor, setBgColor] = useState({backgroundColor: '#fff'});
 
     async function fetchData() {
         const res = await fetch(COUNTRY_URL);
@@ -29,51 +26,37 @@ function App() {
         const randomOpt1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
         const randomOpt2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
         const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
-        // setCorrectAnswer(randomOpt);
+        setCorrectAnswer(randomOpt);
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
-        setRandomCountry({
-            correctAnswer: randomOpt,
-            randomOption: randomOptions,
-            isAnswer: "",
-            goodGuess: 0,
-            bgColor: {backgroundColor: '#fff'}
-        });
+        setRandomOption(randomOptions);
     }
 
     function handleClick(e) {
-        const winCountry = randomCountry.correctAnswer.name;
+        const winCountry = correctAnswer.name;
         const userGuess = e.target.value;
         if (winCountry === userGuess) {
-            setRandomCountry((prev) => {
-                return {
-                    ...prev,
-                    goodGuess: randomCountry.goodGuess + 1,
-                    bgColor: {backgroundColor: '#048938'}
-                }
-            });
-            console.log("You are right");
+            setGoodGuess(prevGuess => prevGuess + 1);
+            setBgColor({backgroundColor: '#048938'})
+            setTimeout(() => {
+                setBgColor({backgroundColor: '#fff'})
+            }, 2000);
         } else {
-            setRandomCountry((prev) => {return {
-                ...prev,
-                bgColor: {backgroundColor: '#FF8A65'}
-            }})
-            console.log("Wrong guess");
+            setBgColor({backgroundColor: '#FF8A65'})
         }
     }
     return (
         <main>
             <h1>Country Quiz</h1>
-            <div style={randomCountry.bgColor}>
-                <p>Which country's capital city is <strong>{randomCountry.correctAnswer.capital}</strong>?</p>
-
+            <div style={bgColor}>
+                <p>Which country's capital city is <strong>{correctAnswer.capital}</strong>?</p>
                 <div>
-                    <p><strong>Score: </strong> {randomCountry.goodGuess}</p>
-                    {randomCountry.randomOption.map(answer => (
+                    <p><strong>Score: </strong> {goodGuess}</p>
+                    {randomOption.map(answer => (
                         <button key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
                     ))}
                 </div>
-                {/* <button className="rnd mui-btn mui-btn--raised" onClick={() => setRandomCountry(countryQuiz)}>Random</button> */}
+                <button onClick={() => selectRandomCountry(countryQuiz)}>Random</button>
             </div>
         </main>
     )

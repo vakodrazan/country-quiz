@@ -29790,14 +29790,12 @@ const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function App() {
   const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]);
-  let [randomCountry, setRandomCountry] = (0, _react.useState)({
-    correctAnswer: {},
-    randomOption: [],
-    isAnswer: "",
-    goodGuess: 0,
-    bgColor: {
-      backgroundColor: '#fff'
-    }
+  let [randomOption, setRandomOption] = (0, _react.useState)([]);
+  const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({});
+  const [isAnswer, setIsAnswer] = (0, _react.useState)("");
+  const [goodGuess, setGoodGuess] = (0, _react.useState)(0);
+  const [bgColor, setBgColor] = (0, _react.useState)({
+    backgroundColor: '#fff'
   });
 
   async function fetchData() {
@@ -29815,56 +29813,45 @@ function App() {
     const randomOpt = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
     const randomOpt1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
     const randomOpt2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
-    const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)]; // setCorrectAnswer(randomOpt);
-
+    const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    setCorrectAnswer(randomOpt);
     const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3];
     randomOptions.sort(() => {
       return 0.5 - Math.random();
     });
-    setRandomCountry({
-      correctAnswer: randomOpt,
-      randomOption: randomOptions,
-      isAnswer: "",
-      goodGuess: 0,
-      bgColor: {
-        backgroundColor: '#fff'
-      }
-    });
+    setRandomOption(randomOptions);
   }
 
   function handleClick(e) {
-    const winCountry = randomCountry.correctAnswer.name;
+    const winCountry = correctAnswer.name;
     const userGuess = e.target.value;
 
     if (winCountry === userGuess) {
-      setRandomCountry(prev => {
-        return { ...prev,
-          goodGuess: randomCountry.goodGuess + 1,
-          bgColor: {
-            backgroundColor: '#048938'
-          }
-        };
+      setGoodGuess(prevGuess => prevGuess + 1);
+      setBgColor({
+        backgroundColor: '#048938'
       });
-      console.log("You are right");
+      setTimeout(() => {
+        setBgColor({
+          backgroundColor: '#fff'
+        });
+      }, 2000);
     } else {
-      setRandomCountry(prev => {
-        return { ...prev,
-          bgColor: {
-            backgroundColor: '#FF8A65'
-          }
-        };
+      setBgColor({
+        backgroundColor: '#FF8A65'
       });
-      console.log("Wrong guess");
     }
   }
 
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {
-    style: randomCountry.bgColor
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, randomCountry.correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", randomCountry.goodGuess), randomCountry.randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+    style: bgColor
+  }, /*#__PURE__*/_react.default.createElement("p", null, "Which country's capital city is ", /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), "?"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
-  }, answer.name)))));
+  }, answer.name))), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => selectRandomCountry(countryQuiz)
+  }, "Random")));
 }
 
 var _default = App;
@@ -29909,7 +29896,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49972" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54371" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
