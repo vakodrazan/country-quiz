@@ -9,6 +9,8 @@ function App() {
     const [random, setRandom] = useState(0);
     const [goodGuess, setGoodGuess] = useState(0);
     const [bgColor, setBgColor] = useState({backgroundColor: '#fff'});
+    const [isCorrect, setIsCorrect] = useState(true);
+    const [newArr, setNewArr] = useState([]);
 
     async function fetchData() {
         const res = await fetch(COUNTRY_URL);
@@ -30,25 +32,34 @@ function App() {
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
         setRandomOption(randomOptions);
-        setRandom(Math.floor(Math.random() * 2));
+        setRandom(Math.floor(Math.random() * 1));
+        setBgColor({backgroundColor: "#fff"})
     }
 
     function handleClick(e) {
         const winCountry = correctAnswer.name;
         const userGuess = e.target.value;
         if (winCountry === userGuess) {
-            setGoodGuess(prevGuess => prevGuess + 1);
             setBgColor({backgroundColor: '#048938'})
+            setIsCorrect(true);
+
+            // Get the new random
+            setTimeout(()=>{
+                selectRandomCountry(countryQuiz);
+                setGoodGuess(prevGuess => prevGuess + 1);
+                setBgColor({backgroundColor: '#fff'});
+            }, 2000)
         } else {
+            setIsCorrect(false)
             setBgColor({backgroundColor: '#FF8A65'});
         }
 
-        setTimeout(()=>{
-            selectRandomCountry(countryQuiz);
-            setBgColor({backgroundColor: '#fff'});
-        }, 2000)
-    
     }
+
+    function getNewRandom() {
+        selectRandomCountry(countryQuiz);
+    }
+
     return (
         <div className="container">
             <main>
@@ -68,7 +79,10 @@ function App() {
                             ))}
                         </div>
                     </div>
-                    <button onClick={() => selectRandomCountry(countryQuiz)}>Random</button>
+                    {isCorrect === false 
+                    ? <button onClick={getNewRandom}>Random</button>
+                    : null
+                    }
                 </article>
             </main>
         </div>

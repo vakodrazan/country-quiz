@@ -29797,6 +29797,8 @@ function App() {
   const [bgColor, setBgColor] = (0, _react.useState)({
     backgroundColor: '#fff'
   });
+  const [isCorrect, setIsCorrect] = (0, _react.useState)(true);
+  const [newArr, setNewArr] = (0, _react.useState)([]);
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29820,7 +29822,10 @@ function App() {
       return 0.5 - Math.random();
     });
     setRandomOption(randomOptions);
-    setRandom(Math.floor(Math.random() * 2));
+    setRandom(Math.floor(Math.random() * 1));
+    setBgColor({
+      backgroundColor: "#fff"
+    });
   }
 
   function handleClick(e) {
@@ -29828,22 +29833,28 @@ function App() {
     const userGuess = e.target.value;
 
     if (winCountry === userGuess) {
-      setGoodGuess(prevGuess => prevGuess + 1);
       setBgColor({
         backgroundColor: '#048938'
       });
+      setIsCorrect(true); // Get the new random
+
+      setTimeout(() => {
+        selectRandomCountry(countryQuiz);
+        setGoodGuess(prevGuess => prevGuess + 1);
+        setBgColor({
+          backgroundColor: '#fff'
+        });
+      }, 2000);
     } else {
+      setIsCorrect(false);
       setBgColor({
         backgroundColor: '#FF8A65'
       });
     }
+  }
 
-    setTimeout(() => {
-      selectRandomCountry(countryQuiz);
-      setBgColor({
-        backgroundColor: '#fff'
-      });
-    }, 2000);
+  function getNewRandom() {
+    selectRandomCountry(countryQuiz);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -29861,9 +29872,9 @@ function App() {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
-  }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => selectRandomCountry(countryQuiz)
-  }, "Random"))));
+  }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
+    onClick: getNewRandom
+  }, "Random") : null)));
 }
 
 var _default = App;
