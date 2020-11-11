@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AnswerOptions from "../components/AnswerOptions";
 import Questions from "../components/Questions";
+import TryAgain from "../components/TryAgain";
 
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
@@ -87,20 +88,11 @@ function App() {
                                 />
                             </>
                         ) 
-                        : <>
-                            <h2>Results</h2>
-                            <p>
-                                You got <span>{goodGuess}</span> score
-                            </p>
-                            <button
-                                onClick={() => {
-                                    setIsCorrect(true)
-                                    fetchData()
-                                }}
-                            >
-                                Try Again
-                            </button>
-                        </> 
+                        : <TryAgain 
+                            goodGuess={goodGuess} 
+                            setIsCorrect={setIsCorrect} 
+                            fetchData={fetchData} 
+                        /> 
                     }
                 </article>
             </main>

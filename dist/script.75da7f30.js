@@ -29829,6 +29829,33 @@ function Questions({
 
 var _default = Questions;
 exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/TryAgain.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function TryAgain({
+  goodGuess,
+  setIsCorrect,
+  fetchData
+}) {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => {
+      setIsCorrect(true);
+      fetchData();
+    }
+  }, "Try Again"));
+}
+
+var _default = TryAgain;
+exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"pages/App.js":[function(require,module,exports) {
 "use strict";
 
@@ -29842,6 +29869,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _AnswerOptions = _interopRequireDefault(require("../components/AnswerOptions"));
 
 var _Questions = _interopRequireDefault(require("../components/Questions"));
+
+var _TryAgain = _interopRequireDefault(require("../components/TryAgain"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29929,17 +29958,16 @@ function App() {
     isCorrect: isCorrect,
     handleClick: handleClick,
     setCountryQuiz: setCountryQuiz
-  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
-    onClick: () => {
-      setIsCorrect(true);
-      fetchData();
-    }
-  }, "Try Again")))));
+  })) : /*#__PURE__*/_react.default.createElement(_TryAgain.default, {
+    goodGuess: goodGuess,
+    setIsCorrect: setIsCorrect,
+    fetchData: fetchData
+  }))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Questions":"components/Questions.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Questions":"components/Questions.js","../components/TryAgain":"components/TryAgain.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
