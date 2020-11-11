@@ -29792,7 +29792,7 @@ function App() {
   const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]);
   let [randomOption, setRandomOption] = (0, _react.useState)([]);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({});
-  const [isAnswer, setIsAnswer] = (0, _react.useState)("");
+  const [random, setRandom] = (0, _react.useState)(0);
   const [goodGuess, setGoodGuess] = (0, _react.useState)(0);
   const [bgColor, setBgColor] = (0, _react.useState)({
     backgroundColor: '#fff'
@@ -29820,6 +29820,7 @@ function App() {
       return 0.5 - Math.random();
     });
     setRandomOption(randomOptions);
+    setRandom(Math.floor(Math.random() * 3));
   }
 
   function handleClick(e) {
@@ -29830,9 +29831,7 @@ function App() {
       setGoodGuess(prevGuess => prevGuess + 1);
       setBgColor({
         backgroundColor: '#048938'
-      }); // setTimeout(() => {
-      //     setBgColor({backgroundColor: '#fff'})
-      // }, 2000);
+      });
     } else {
       setBgColor({
         backgroundColor: '#FF8A65'
@@ -29849,7 +29848,10 @@ function App() {
 
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {
     style: bgColor
-  }, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  }, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
+    src: correctAnswer.flag,
+    alt: `This is ${correctAnswer.name} flag`
+  }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick

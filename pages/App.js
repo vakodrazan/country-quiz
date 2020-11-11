@@ -6,7 +6,7 @@ function App() {
     const [countryQuiz, setCountryQuiz] = useState([]);
     let [randomOption, setRandomOption] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState({});
-    const [isAnswer, setIsAnswer] = useState("");
+    const [random, setRandom] = useState(0);
     const [goodGuess, setGoodGuess] = useState(0);
     const [bgColor, setBgColor] = useState({backgroundColor: '#fff'});
 
@@ -30,6 +30,7 @@ function App() {
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
         setRandomOption(randomOptions);
+        setRandom(Math.floor(Math.random() * 3));
     }
 
     function handleClick(e) {
@@ -38,11 +39,8 @@ function App() {
         if (winCountry === userGuess) {
             setGoodGuess(prevGuess => prevGuess + 1);
             setBgColor({backgroundColor: '#048938'})
-            // setTimeout(() => {
-            //     setBgColor({backgroundColor: '#fff'})
-            // }, 2000);
         } else {
-            setBgColor({backgroundColor: '#FF8A65'})
+            setBgColor({backgroundColor: '#FF8A65'});
         }
 
         setTimeout(()=>{
@@ -55,7 +53,10 @@ function App() {
         <main>
             <h1>Country Quiz</h1>
             <div style={bgColor}>
-                <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
+                {random % 3 === 0 
+                    ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                    : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
+                }
                 <div>
                     <p><strong>Score: </strong> {goodGuess}</p>
                     {randomOption.map(answer => (
