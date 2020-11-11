@@ -29846,18 +29846,24 @@ function App() {
     }, 2000);
   }
 
-  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
+    className: "article",
     style: bgColor
   }, /*#__PURE__*/_react.default.createElement("div", null, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
-  }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
+    className: "options"
+  }, randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+    className: "option-btn",
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
-  }, answer.name))), /*#__PURE__*/_react.default.createElement("button", {
+  }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => selectRandomCountry(countryQuiz)
-  }, "Random")));
+  }, "Random"))));
 }
 
 var _default = App;
@@ -29902,7 +29908,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49938" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,6 +1,29 @@
+.container {
+    padding: 0 2rem;
+}
+
 img {
     width: 250px;
     max-width: 100%;
+}
+
+button {
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+/* .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+.option-btn {
+    width: 70%;
+    height: 3rem;
+    margin-bottom: 1rem;
+    border: 2px solid rgba(96, 102, 208, 0.7);
+    color: rgba(96, 102, 208, 0.8);
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

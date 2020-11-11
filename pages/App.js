@@ -50,24 +50,28 @@ function App() {
     
     }
     return (
-        <main>
-            <h1>Country Quiz</h1>
-            <article style={bgColor}>
-                <div>
-                    {random % 3 === 0 
-                        ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
-                        : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
-                    }
-                </div>
-                <div>
-                    <p><strong>Score: </strong> {goodGuess}</p>
-                    {randomOption.map(answer => (
-                        <button key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
-                    ))}
-                </div>
-                <button onClick={() => selectRandomCountry(countryQuiz)}>Random</button>
-            </article>
-        </main>
+        <div className="container">
+            <main>
+                <h1>Country Quiz</h1>
+                <article className="article" style={bgColor}>
+                    <div>
+                        {random % 3 === 0 
+                            ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                            : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
+                        }
+                    </div>
+                    <div>
+                        <p><strong>Score: </strong> {goodGuess}</p>
+                        <div className="options">
+                            {randomOption.map(answer => (
+                                <button className="option-btn" key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
+                            ))}
+                        </div>
+                    </div>
+                    <button onClick={() => selectRandomCountry(countryQuiz)}>Random</button>
+                </article>
+            </main>
+        </div>
     )
 }
 
