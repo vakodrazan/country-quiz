@@ -29820,7 +29820,7 @@ function App() {
       return 0.5 - Math.random();
     });
     setRandomOption(randomOptions);
-    setRandom(Math.floor(Math.random() * 3));
+    setRandom(Math.floor(Math.random() * 2));
   }
 
   function handleClick(e) {
@@ -29846,12 +29846,12 @@ function App() {
     }, 2000);
   }
 
-  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
     style: bgColor
-  }, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("div", null, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
-  }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick

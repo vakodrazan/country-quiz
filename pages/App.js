@@ -30,7 +30,7 @@ function App() {
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
         setRandomOption(randomOptions);
-        setRandom(Math.floor(Math.random() * 3));
+        setRandom(Math.floor(Math.random() * 2));
     }
 
     function handleClick(e) {
@@ -52,11 +52,13 @@ function App() {
     return (
         <main>
             <h1>Country Quiz</h1>
-            <div style={bgColor}>
-                {random % 3 === 0 
-                    ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
-                    : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
-                }
+            <article style={bgColor}>
+                <div>
+                    {random % 3 === 0 
+                        ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                        : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
+                    }
+                </div>
                 <div>
                     <p><strong>Score: </strong> {goodGuess}</p>
                     {randomOption.map(answer => (
@@ -64,7 +66,7 @@ function App() {
                     ))}
                 </div>
                 <button onClick={() => selectRandomCountry(countryQuiz)}>Random</button>
-            </div>
+            </article>
         </main>
     )
 }
