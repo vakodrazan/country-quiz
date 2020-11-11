@@ -8,7 +8,6 @@ function App() {
     const [correctAnswer, setCorrectAnswer] = useState({});
     const [random, setRandom] = useState(0);
     const [goodGuess, setGoodGuess] = useState(0);
-    const [bgColor, setBgColor] = useState({backgroundColor: '#fff'});
     const [isCorrect, setIsCorrect] = useState(true);
 
     async function fetchData() {
@@ -31,26 +30,39 @@ function App() {
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
         setRandomOption(randomOptions);
-        setRandom(Math.floor(Math.random() * 1));
-        setBgColor({backgroundColor: "#fff"})
+        setRandom(Math.floor(Math.random() * 5));
     }
+
+    const disableAll = () => {
+        let opt = document.getElementsByClassName("option");
+        for (let i = 0; i < 4; i++) {
+          opt[i].disabled = true;
+        }
+      };
 
     function handleClick(e) {
         const winCountry = correctAnswer.name;
         const userGuess = e.target.value;
+
+        // Check if the right answer and the value of the element clicked is the same
+        // Other ways do something else
         if (winCountry === userGuess) {
-            setBgColor({backgroundColor: '#048938'})
             setIsCorrect(true);
+            e.target.style.background = "#048938";
+            e.target.style.borderColor = "#048938";
+            e.target.style.color = "#fff";
 
             // Get the new random
-            setTimeout(()=>{
-                selectRandomCountry(countryQuiz);
-                setGoodGuess(prevGuess => prevGuess + 1);
-                setBgColor({backgroundColor: '#fff'});
-            }, 2000)
+                setTimeout(() => {
+                    selectRandomCountry(countryQuiz);
+                    setGoodGuess(prevGuess => prevGuess + 1);
+                }, 500);
         } else {
-            setIsCorrect(false)
-            setBgColor({backgroundColor: '#FF8A65'});
+            setIsCorrect(false);
+            e.target.style.background = "#EA8282";
+            e.target.style.borderColor = "#EA8282";
+            e.target.style.color = "#fff";
+            disableAll();
         }
 
     }
@@ -59,13 +71,17 @@ function App() {
         <div className="container">
             <main>
                 <h1>Country Quiz</h1>
-                <article className="article" style={bgColor}>
+                <article className="article">
                     {countryQuiz 
                         ? (
                             <>
                                 <div>
-                                    {random % 3 === 0 
-                                        ? <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                                    {random % 5 === 0 
+                                        ? 
+                                        <div> 
+                                            <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                                            <p>Which country's flag is this?</p>
+                                        </div>
                                         : <p><strong>{correctAnswer.capital}</strong> is a capital city of</p>
                                     }
                                 </div>
@@ -73,7 +89,7 @@ function App() {
                                     <p><strong>Score: </strong> {goodGuess}</p>
                                     <div className="options">
                                         {randomOption.map(answer => (
-                                            <button className="option-btn" key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
+                                            <button className="option option-btn" key={answer.numericCode} value={answer.name} onClick={handleClick} >{answer.name}</button>
                                         ))}
                                     </div>
                                 </div>
@@ -84,7 +100,7 @@ function App() {
                             </>
                         ) 
                         : <>
-                            <h1>Results</h1>
+                            <h2>Results</h2>
                             <p>
                                 You got <span>{goodGuess}</span> score
                             </p>

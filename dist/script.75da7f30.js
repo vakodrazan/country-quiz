@@ -29794,9 +29794,6 @@ function App() {
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({});
   const [random, setRandom] = (0, _react.useState)(0);
   const [goodGuess, setGoodGuess] = (0, _react.useState)(0);
-  const [bgColor, setBgColor] = (0, _react.useState)({
-    backgroundColor: '#fff'
-  });
   const [isCorrect, setIsCorrect] = (0, _react.useState)(true);
 
   async function fetchData() {
@@ -29821,55 +29818,58 @@ function App() {
       return 0.5 - Math.random();
     });
     setRandomOption(randomOptions);
-    setRandom(Math.floor(Math.random() * 1));
-    setBgColor({
-      backgroundColor: "#fff"
-    });
+    setRandom(Math.floor(Math.random() * 5));
   }
+
+  const disableAll = () => {
+    let opt = document.getElementsByClassName("option");
+
+    for (let i = 0; i < 4; i++) {
+      opt[i].disabled = true;
+    }
+  };
 
   function handleClick(e) {
     const winCountry = correctAnswer.name;
-    const userGuess = e.target.value;
+    const userGuess = e.target.value; // Check if the right answer and the value of the element clicked is the same
+    // Other ways do something else
 
     if (winCountry === userGuess) {
-      setBgColor({
-        backgroundColor: '#048938'
-      });
-      setIsCorrect(true); // Get the new random
+      setIsCorrect(true);
+      e.target.style.background = "#048938";
+      e.target.style.borderColor = "#048938";
+      e.target.style.color = "#fff"; // Get the new random
 
       setTimeout(() => {
         selectRandomCountry(countryQuiz);
         setGoodGuess(prevGuess => prevGuess + 1);
-        setBgColor({
-          backgroundColor: '#fff'
-        });
-      }, 2000);
+      }, 500);
     } else {
       setIsCorrect(false);
-      setBgColor({
-        backgroundColor: '#FF8A65'
-      });
+      e.target.style.background = "#EA8282";
+      e.target.style.borderColor = "#EA8282";
+      e.target.style.color = "#fff";
+      disableAll();
     }
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
-    className: "article",
-    style: bgColor
-  }, countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("img", {
+    className: "article"
+  }, countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, random % 5 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
-  }) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("p", null, "Which country's flag is this?")) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is a capital city of")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
   }, randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
-    className: "option-btn",
+    className: "option option-btn",
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
   }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => setCountryQuiz(null)
-  }, "Random") : null) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
+  }, "Random") : null) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " score"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       setIsCorrect(true);
       fetchData();
