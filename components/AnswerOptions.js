@@ -12,7 +12,7 @@ function AnswerOptions({goodGuess, randomOption, isCorrect, handleClick, setCoun
                 </div>
             </div>
             {isCorrect === false 
-            ? <button onClick={() => setCountryQuiz(null)}>Random</button>
+            ? <button className="random-btn" onClick={() => setCountryQuiz(null)}>Next</button>
             : null
             }
         </>

@@ -37,11 +37,17 @@ button {
   border-radius: 12px;
 }
 
-/* .options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
+button:hover {
+  background-color: #F9A826;
+}
+
+.random-btn {
+  background-color: #F9A826;
+  padding: 15px 36px;
+  border: none;
+  color: #fff;
+}
+
 .option-btn {
   width: 100%;
   height: 3rem;

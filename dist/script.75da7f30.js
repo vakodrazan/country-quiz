@@ -29799,8 +29799,9 @@ function AnswerOptions({
     value: answer.name,
     onClick: handleClick
   }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
+    className: "random-btn",
     onClick: () => setCountryQuiz(null)
-  }, "Random") : null);
+  }, "Next") : null);
 }
 
 var _default = AnswerOptions;
