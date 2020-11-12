@@ -29879,19 +29879,27 @@ exports.default = void 0;
 
 var _react = require("react");
 
+// Do all the logic in this file
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 
 function useCountryQuiz() {
   // All the variables
-  const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]);
-  let [randomOption, setRandomOption] = (0, _react.useState)([]);
-  const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({});
-  const [random, setRandom] = (0, _react.useState)(0);
-  const [goodGuess, setGoodGuess] = (0, _react.useState)(0);
-  const [isCorrect, setIsCorrect] = (0, _react.useState)(true);
+  const [countryQuiz, setCountryQuiz] = (0, _react.useState)([]); // full list of country info
+
+  let [randomOption, setRandomOption] = (0, _react.useState)([]); // all the list options
+
+  const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({}); // the right answer
+
+  const [random, setRandom] = (0, _react.useState)(0); // how many times has it rendered
+
+  const [goodGuess, setGoodGuess] = (0, _react.useState)(0); // score
+
+  const [isCorrect, setIsCorrect] = (0, _react.useState)(true); // this is for the choosen answer
+
   const [visibility, setVisibility] = (0, _react.useState)({
     display: "none"
-  }); // Fetch the data from the API
+  }); // for the next button
+  // Fetch the data from the API
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29908,12 +29916,14 @@ function useCountryQuiz() {
     const randomOpt = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
     const randomOpt1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
     const randomOpt2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
-    const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+    const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)]; // this is where we get the right answer and the question
+
     setCorrectAnswer(randomOpt);
     const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3];
     randomOptions.sort(() => {
       return 0.5 - Math.random();
-    });
+    }); // All the option random list
+
     setRandomOption(randomOptions);
     setRandom(Math.floor(Math.random() * 5));
   } // Disabled the button after choosing the answer
@@ -29939,11 +29949,7 @@ function useCountryQuiz() {
       e.target.style.color = "#fff";
       setVisibility({
         display: "block"
-      }); // Get the new random
-      // setTimeout(() => {
-      //     selectRandomCountry(countryQuiz);
-      //     setGoodGuess(prevGuess => prevGuess + 1);
-      // }, 500);
+      });
     } else {
       setIsCorrect(false);
       e.target.style.background = "#EA8282";

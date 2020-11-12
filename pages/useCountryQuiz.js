@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 
+// Do all the logic in this file
+
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
 function useCountryQuiz() {
     // All the variables
-    const [countryQuiz, setCountryQuiz] = useState([]);
-    let [randomOption, setRandomOption] = useState([]);
-    const [correctAnswer, setCorrectAnswer] = useState({});
-    const [random, setRandom] = useState(0);
-    const [goodGuess, setGoodGuess] = useState(0);
-    const [isCorrect, setIsCorrect] = useState(true);
-    const [visibility, setVisibility] = useState({display: "none"});
+    const [countryQuiz, setCountryQuiz] = useState([]); // full list of country info
+    let [randomOption, setRandomOption] = useState([]); // all the list options
+    const [correctAnswer, setCorrectAnswer] = useState({}); // the right answer
+    const [random, setRandom] = useState(0); // how many times has it rendered
+    const [goodGuess, setGoodGuess] = useState(0); // score
+    const [isCorrect, setIsCorrect] = useState(true); // this is for the choosen answer
+    const [visibility, setVisibility] = useState({display: "none"});// for the next button
 
     // Fetch the data from the API
     async function fetchData() {
@@ -29,9 +31,11 @@ function useCountryQuiz() {
         const randomOpt1 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
         const randomOpt2 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
         const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
+        // this is where we get the right answer and the question
         setCorrectAnswer(randomOpt);
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
+        // All the option random list
         setRandomOption(randomOptions);
         setRandom(Math.floor(Math.random() * 5));
     }
@@ -56,12 +60,6 @@ function useCountryQuiz() {
             e.target.style.borderColor = "#048938";
             e.target.style.color = "#fff";
             setVisibility({display: "block"})
-
-            // Get the new random
-                // setTimeout(() => {
-                //     selectRandomCountry(countryQuiz);
-                //     setGoodGuess(prevGuess => prevGuess + 1);
-                // }, 500);
         } else {
             setIsCorrect(false);
             e.target.style.background = "#EA8282";
