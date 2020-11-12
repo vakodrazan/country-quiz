@@ -33,6 +33,7 @@ function useCountryQuiz() {
         const randomOpt3 = countryQuiz[Math.floor(Math.random() * countryQuiz.length)];
         // this is where we get the right answer and the question
         setCorrectAnswer(randomOpt);
+        // Mixed all the item so that the right answer won't stay in the same place
         const randomOptions = [randomOpt, randomOpt1, randomOpt2, randomOpt3]
         randomOptions.sort(() => {return 0.5 - Math.random()})
         // All the option random list
@@ -49,9 +50,17 @@ function useCountryQuiz() {
       };
 
     function handleClick(e) {
+        // Change the color of the right answer when the choice is wrong
+        const buttons = document.getElementsByClassName("option");
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].textContent === correctAnswer.name) {
+                buttons[i].style.background = "#048938"
+                buttons[i].style.color = "#fff";
+            }
+        }
+
         const winCountry = correctAnswer.name;
         const userGuess = e.target.value;
-
         // Check if the right answer and the value of the element clicked is the same
         // Other ways do something else
         if (winCountry === userGuess) {

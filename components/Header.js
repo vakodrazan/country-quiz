@@ -3,7 +3,6 @@ import undrawAdventure4hum from "../undraw_adventure_4hum1.svg";
 
 
 function Header() {
-    console.log(undrawAdventure4hum);
     return (
         <header className="header">
             <h1>Country Quiz</h1>
