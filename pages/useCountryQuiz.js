@@ -49,13 +49,13 @@ function useCountryQuiz() {
         }
       };
 
+    // Handle the option button
     function handleClick(e) {
         // Change the color of the right answer when the choice is wrong
         const buttons = document.getElementsByClassName("option");
         for (let i = 0; i < buttons.length; i++) {
             if (buttons[i].textContent === correctAnswer.name) {
-                buttons[i].style.background = "#048938"
-                buttons[i].style.color = "#fff";
+                buttons[i].classList.add("correctBtn")
             }
         }
 
@@ -65,16 +65,12 @@ function useCountryQuiz() {
         // Other ways do something else
         if (winCountry === userGuess) {
             setIsCorrect(true);
-            e.target.style.background = "#048938";
-            e.target.style.borderColor = "#048938";
-            e.target.style.color = "#fff";
+            e.target.classList.add("correctBtn")
             setVisibility({display: "block"})
             setGoodGuess(prevGuess => prevGuess + 1);
         } else {
             setIsCorrect(false);
-            e.target.style.background = "#EA8282";
-            e.target.style.borderColor = "#EA8282";
-            e.target.style.color = "#fff";
+            e.target.classList.add("wrongBtn");
             disableAll();
             setVisibility({display: "block"})
         }

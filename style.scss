@@ -92,3 +92,21 @@ button:hover {
         padding: 10px;
     }
 }
+
+.correctBtn {
+    background-color: #048938;
+    color: #fff;
+}
+
+.correctBtn:hover {
+    background-color: #048938;
+}
+
+.wrongBtn {
+    background-color: #EA8282;
+    color: #fff;
+}
+
+.wrongBtn:hover {
+    background-color: #EA8282;
+}
