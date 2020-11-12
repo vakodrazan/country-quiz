@@ -3,11 +3,6 @@ body {
     background-color: rgb(96, 96, 219);
     font-size: 18px;
 }
-h1 {
-    color: white;
-    font-size: 36px;
-    text-transform: uppercase;
-}
 
 .container {
     padding: 12px;
@@ -17,6 +12,11 @@ h1 {
         padding: 0;
         margin: auto;
     }
+}
+
+p {
+    margin: 0;
+    padding: 10px 0;
 }
 
 .article {
@@ -58,4 +58,28 @@ button:hover {
     margin-bottom: 1rem;
     border: 2px solid rgba(96, 102, 208, 0.7);
     color: rgba(96, 102, 208, 0.8);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 42px;
+
+    h1 {
+        color: white;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin: 0;
+        padding-bottom: 4rem;
+        
+        @media (min-width: 650px) {
+            font-size: 36px;
+            padding: 0;
+        }
+    }
+
+    .agventureImg {
+        width: 30%;
+    }
 }

@@ -29825,8 +29825,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Header() {
   console.log(_undraw_adventure_4hum.default);
-  return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("img", {
-    src: _undraw_adventure_4hum.default
+  return /*#__PURE__*/_react.default.createElement("header", {
+    className: "header"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("img", {
+    className: "agventureImg",
+    src: _undraw_adventure_4hum.default,
+    alt: "Undraw adventure for human"
   }));
 }
 
