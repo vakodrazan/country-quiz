@@ -17,7 +17,7 @@ body {
 
 p {
   margin: 0;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .article {
@@ -34,6 +34,7 @@ img {
 button {
   font-size: 18px;
   border-radius: 12px;
+  background-color: white;
 }
 
 button:hover {
@@ -49,7 +50,6 @@ button:hover {
 
 .recommendation-btn {
   padding: 18px 61px;
-  background-color: #fff;
   color: #1D355D;
 }
 
