@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AnswerOptions from "../components/AnswerOptions";
 import Questions from "../components/Questions";
 import Results from "../components/Results";
@@ -15,7 +15,7 @@ function App() {
         setCountryQuiz,
         setIsCorrect,
         handleClick,
-        fetchData
+        fetchData,
     ] = useCountryQuiz();
 
     return (
@@ -31,7 +31,7 @@ function App() {
                                     goodGuess={goodGuess} 
                                     randomOption={randomOption} 
                                     isCorrect={isCorrect}
-                                     handleClick={handleClick} 
+                                    handleClick={handleClick} 
                                     setCountryQuiz={setCountryQuiz} 
                                 />
                             </>
