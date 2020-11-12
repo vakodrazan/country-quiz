@@ -95,6 +95,9 @@ button:hover {
 .correctBtn {
   background-color: #048938;
   color: #fff;
+  background-image: url("/done-24px.b973f9af.svg");
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 .correctBtn:hover {
@@ -104,6 +107,9 @@ button:hover {
 .wrongBtn {
   background-color: #EA8282;
   color: #fff;
+  background-image: url("/close-24px.a4910dcd.svg");
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 .wrongBtn:hover {
