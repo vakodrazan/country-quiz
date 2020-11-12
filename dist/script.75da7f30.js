@@ -29882,10 +29882,12 @@ function Results({
   setIsCorrect,
   fetchData
 }) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("img", {
+  return /*#__PURE__*/_react.default.createElement("section", {
+    className: "final-result"
+  }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
     src: _undraw_winners_ao2o.default,
     alt: "Winner Adventure"
-  }), /*#__PURE__*/_react.default.createElement("h2", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
+  }), /*#__PURE__*/_react.default.createElement("h2", null, "Results")), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
     className: "recommendation-btn",
     onClick: () => {
       setIsCorrect(true);

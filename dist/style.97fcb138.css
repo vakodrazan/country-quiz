@@ -84,4 +84,12 @@ button:hover {
   width: 30%;
 }
 
+.final-result {
+  text-align: center;
+}
+.final-result h2 {
+  margin: 0;
+  padding: 10px;
+}
+
 /*# sourceMappingURL=/style.97fcb138.css.map */
