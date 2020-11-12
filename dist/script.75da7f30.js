@@ -29950,6 +29950,7 @@ function useCountryQuiz() {
       setVisibility({
         display: "block"
       });
+      setGoodGuess(prevGuess => prevGuess + 1);
     } else {
       setIsCorrect(false);
       e.target.style.background = "#EA8282";

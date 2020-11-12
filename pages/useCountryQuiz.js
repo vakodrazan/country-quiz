@@ -60,6 +60,7 @@ function useCountryQuiz() {
             e.target.style.borderColor = "#048938";
             e.target.style.color = "#fff";
             setVisibility({display: "block"})
+            setGoodGuess(prevGuess => prevGuess + 1);
         } else {
             setIsCorrect(false);
             e.target.style.background = "#EA8282";
