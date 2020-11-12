@@ -1,5 +1,6 @@
 import React from "react";
 import AnswerOptions from "../components/AnswerOptions";
+import Header from "../components/Header";
 import Questions from "../components/Questions";
 import Results from "../components/Results";
 import useCountryQuiz from "./useCountryQuiz";
@@ -21,7 +22,7 @@ function App() {
     return (
         <div className="container">
             <main>
-                <h1>Country Quiz</h1>
+                <Header />
                 <article className="article">
                     {countryQuiz 
                         ? (

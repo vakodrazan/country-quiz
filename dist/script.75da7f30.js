@@ -29807,7 +29807,32 @@ function AnswerOptions({
 
 var _default = AnswerOptions;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/Questions.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"undraw_adventure_4hum1.svg":[function(require,module,exports) {
+module.exports = "/undraw_adventure_4hum1.d63cfae0.svg";
+},{}],"components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _undraw_adventure_4hum = _interopRequireDefault(require("../undraw_adventure_4hum1.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Header() {
+  console.log(_undraw_adventure_4hum.default);
+  return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("img", {
+    src: _undraw_adventure_4hum.default
+  }));
+}
+
+var _default = Header;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../undraw_adventure_4hum1.svg":"undraw_adventure_4hum1.svg"}],"components/Questions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29998,6 +30023,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _AnswerOptions = _interopRequireDefault(require("../components/AnswerOptions"));
 
+var _Header = _interopRequireDefault(require("../components/Header"));
+
 var _Questions = _interopRequireDefault(require("../components/Questions"));
 
 var _Results = _interopRequireDefault(require("../components/Results"));
@@ -30010,7 +30037,7 @@ function App() {
   const [countryQuiz, random, correctAnswer, goodGuess, randomOption, visibility, setGoodGuess, setIsCorrect, handleClick, fetchData, handleClickNext] = (0, _useCountryQuiz.default)();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
+  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("article", {
     className: "article"
   }, countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Questions.default, {
     random: random,
@@ -30031,7 +30058,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Questions":"components/Questions.js","../components/Results":"components/Results.js","./useCountryQuiz":"pages/useCountryQuiz.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Header":"components/Header.js","../components/Questions":"components/Questions.js","../components/Results":"components/Results.js","./useCountryQuiz":"pages/useCountryQuiz.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
