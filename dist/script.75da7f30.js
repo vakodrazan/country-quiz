@@ -29955,7 +29955,7 @@ function useCountryQuiz() {
     }); // All the option random list
 
     setRandomOption(randomOptions);
-    setRandom(Math.floor(Math.random() * 5));
+    setRandom(Math.floor(Math.random() * countryQuiz.length));
   } // Disabled the button after choosing the answer
 
 
