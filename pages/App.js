@@ -29,7 +29,6 @@ function App() {
                             <>
                                 <Questions random={random} correctAnswer={correctAnswer} />
                                 <AnswerOptions 
-                                    goodGuess={goodGuess} 
                                     randomOption={randomOption} 
                                     visibility={visibility}
                                     handleClick={handleClick} 

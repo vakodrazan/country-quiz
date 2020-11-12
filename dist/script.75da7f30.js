@@ -29785,13 +29785,12 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function AnswerOptions({
-  goodGuess,
   randomOption,
   visibility,
   handleClick,
   handleClickNext
 }) {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
   }, randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
     className: "option option-btn",
@@ -30047,7 +30046,6 @@ function App() {
     random: random,
     correctAnswer: correctAnswer
   }), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, {
-    goodGuess: goodGuess,
     randomOption: randomOption,
     visibility: visibility,
     handleClick: handleClick,
