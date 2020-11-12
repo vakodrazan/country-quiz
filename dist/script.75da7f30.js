@@ -29787,9 +29787,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function AnswerOptions({
   goodGuess,
   randomOption,
-  isCorrect,
+  visibility,
   handleClick,
-  setCountryQuiz
+  handleClickNext
 }) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Score: "), " ", goodGuess), /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
@@ -29798,10 +29798,11 @@ function AnswerOptions({
     key: answer.numericCode,
     value: answer.name,
     onClick: handleClick
-  }, answer.name)))), isCorrect === false ? /*#__PURE__*/_react.default.createElement("button", {
+  }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
+    style: visibility,
     className: "random-btn",
-    onClick: () => setCountryQuiz(null)
-  }, "Next") : null);
+    onClick: handleClickNext
+  }, "Next"));
 }
 
 var _default = AnswerOptions;
@@ -29887,7 +29888,10 @@ function useCountryQuiz() {
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)({});
   const [random, setRandom] = (0, _react.useState)(0);
   const [goodGuess, setGoodGuess] = (0, _react.useState)(0);
-  const [isCorrect, setIsCorrect] = (0, _react.useState)(true); // Fetch the data from the API
+  const [isCorrect, setIsCorrect] = (0, _react.useState)(true);
+  const [visibility, setVisibility] = (0, _react.useState)({
+    display: "none"
+  }); // Fetch the data from the API
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29932,22 +29936,45 @@ function useCountryQuiz() {
       setIsCorrect(true);
       e.target.style.background = "#048938";
       e.target.style.borderColor = "#048938";
-      e.target.style.color = "#fff"; // Get the new random
-
-      setTimeout(() => {
-        selectRandomCountry(countryQuiz);
-        setGoodGuess(prevGuess => prevGuess + 1);
-      }, 500);
+      e.target.style.color = "#fff";
+      setVisibility({
+        display: "block"
+      }); // Get the new random
+      // setTimeout(() => {
+      //     selectRandomCountry(countryQuiz);
+      //     setGoodGuess(prevGuess => prevGuess + 1);
+      // }, 500);
     } else {
       setIsCorrect(false);
       e.target.style.background = "#EA8282";
       e.target.style.borderColor = "#EA8282";
       e.target.style.color = "#fff";
       disableAll();
+      setVisibility({
+        display: "block"
+      });
     }
+  } // Handle the next button
+
+
+  function handleClickNext() {
+    // when the choosen answer is wrong, reset the list and show another recommendation
+    if (isCorrect === false) {
+      setCountryQuiz(null);
+    } else {
+      // If it's true carry on with the quiz
+      selectRandomCountry(countryQuiz);
+    } // wait for sometime after clicking the button and hide it 
+
+
+    setTimeout(() => {
+      setVisibility({
+        display: "none"
+      });
+    }, 200);
   }
 
-  return [countryQuiz, random, correctAnswer, goodGuess, randomOption, isCorrect, setGoodGuess, setCountryQuiz, setIsCorrect, handleClick, fetchData];
+  return [countryQuiz, random, correctAnswer, goodGuess, randomOption, visibility, setGoodGuess, setIsCorrect, handleClick, fetchData, handleClickNext];
 }
 
 var _default = useCountryQuiz;
@@ -29973,7 +30000,7 @@ var _useCountryQuiz = _interopRequireDefault(require("./useCountryQuiz"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  const [countryQuiz, random, correctAnswer, goodGuess, randomOption, isCorrect, setGoodGuess, setCountryQuiz, setIsCorrect, handleClick, fetchData] = (0, _useCountryQuiz.default)();
+  const [countryQuiz, random, correctAnswer, goodGuess, randomOption, visibility, setGoodGuess, setIsCorrect, handleClick, fetchData, handleClickNext] = (0, _useCountryQuiz.default)();
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("article", {
@@ -29984,9 +30011,9 @@ function App() {
   }), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, {
     goodGuess: goodGuess,
     randomOption: randomOption,
-    isCorrect: isCorrect,
+    visibility: visibility,
     handleClick: handleClick,
-    setCountryQuiz: setCountryQuiz
+    handleClickNext: handleClickNext
   })) : /*#__PURE__*/_react.default.createElement(_Results.default, {
     goodGuess: goodGuess,
     setGoodGuess: setGoodGuess,
@@ -30037,7 +30064,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60992" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58977" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

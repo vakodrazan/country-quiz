@@ -10,12 +10,12 @@ function App() {
         correctAnswer,
         goodGuess,
         randomOption,
-        isCorrect,
+        visibility,
         setGoodGuess,
-        setCountryQuiz,
         setIsCorrect,
         handleClick,
         fetchData,
+        handleClickNext
     ] = useCountryQuiz();
 
     return (
@@ -30,9 +30,9 @@ function App() {
                                 <AnswerOptions 
                                     goodGuess={goodGuess} 
                                     randomOption={randomOption} 
-                                    isCorrect={isCorrect}
+                                    visibility={visibility}
                                     handleClick={handleClick} 
-                                    setCountryQuiz={setCountryQuiz} 
+                                    handleClickNext={handleClickNext}
                                 />
                             </>
                         ) 

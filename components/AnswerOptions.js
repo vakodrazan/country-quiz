@@ -1,6 +1,6 @@
 import React from "react";
 
-function AnswerOptions({goodGuess, randomOption, isCorrect, handleClick, setCountryQuiz }) {
+function AnswerOptions({goodGuess, randomOption, visibility, handleClick, handleClickNext }) {
     return (
         <>
             <div>
@@ -11,10 +11,7 @@ function AnswerOptions({goodGuess, randomOption, isCorrect, handleClick, setCoun
                     ))}
                 </div>
             </div>
-            {isCorrect === false 
-            ? <button className="random-btn" onClick={() => setCountryQuiz(null)}>Next</button>
-            : null
-            }
+            <button style={visibility} className="random-btn" onClick={handleClickNext}>Next</button>
         </>
     )
 }

@@ -9,6 +9,7 @@ function useCountryQuiz() {
     const [random, setRandom] = useState(0);
     const [goodGuess, setGoodGuess] = useState(0);
     const [isCorrect, setIsCorrect] = useState(true);
+    const [visibility, setVisibility] = useState({display: "none"});
 
     // Fetch the data from the API
     async function fetchData() {
@@ -54,19 +55,36 @@ function useCountryQuiz() {
             e.target.style.background = "#048938";
             e.target.style.borderColor = "#048938";
             e.target.style.color = "#fff";
+            setVisibility({display: "block"})
 
             // Get the new random
-                setTimeout(() => {
-                    selectRandomCountry(countryQuiz);
-                    setGoodGuess(prevGuess => prevGuess + 1);
-                }, 500);
+                // setTimeout(() => {
+                //     selectRandomCountry(countryQuiz);
+                //     setGoodGuess(prevGuess => prevGuess + 1);
+                // }, 500);
         } else {
             setIsCorrect(false);
             e.target.style.background = "#EA8282";
             e.target.style.borderColor = "#EA8282";
             e.target.style.color = "#fff";
             disableAll();
+            setVisibility({display: "block"})
         }
+    }
+
+    // Handle the next button
+    function handleClickNext() {
+        // when the choosen answer is wrong, reset the list and show another recommendation
+        if (isCorrect === false) {
+            setCountryQuiz(null)
+        } else {
+            // If it's true carry on with the quiz
+            selectRandomCountry(countryQuiz)
+        }
+        // wait for sometime after clicking the button and hide it 
+        setTimeout(() => {
+            setVisibility({display: "none"})
+        }, 200);
     }
 
     return [
@@ -75,12 +93,12 @@ function useCountryQuiz() {
         correctAnswer,
         goodGuess,
         randomOption,
-        isCorrect,
+        visibility,
         setGoodGuess,
-        setCountryQuiz,
         setIsCorrect,
         handleClick,
-        fetchData
+        fetchData,
+        handleClickNext
     ]
 }
 
