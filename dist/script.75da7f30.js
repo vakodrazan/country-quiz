@@ -29792,9 +29792,9 @@ function AnswerOptions({
 }) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
-  }, randomOption.map(answer => /*#__PURE__*/_react.default.createElement("button", {
+  }, randomOption.map((answer, index) => /*#__PURE__*/_react.default.createElement("button", {
     className: "option option-btn",
-    key: answer.numericCode,
+    key: answer.numericCode + index,
     value: answer.name,
     onClick: handleClick
   }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
@@ -29927,7 +29927,7 @@ function useCountryQuiz() {
 
   const [visibility, setVisibility] = (0, _react.useState)({
     display: "none"
-  }); // for the next button
+  }); // for the next buttons
   // Fetch the data from the API
 
   async function fetchData() {
