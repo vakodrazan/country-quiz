@@ -9,7 +9,7 @@ function Results({goodGuess, setGoodGuess, setIsCorrect, fetchData}) {
                 <img src={winnerAdventure} alt="Winner Adventure" />
                 <h2>Results</h2>
             </header>
-            <p>
+            <p className="scoreGuess">
                 You got <span className="score">{goodGuess}</span> correct answers
             </p>
             <button

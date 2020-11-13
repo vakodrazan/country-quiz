@@ -29889,7 +29889,9 @@ function Results({
   }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
     src: _undraw_winners_ao2o.default,
     alt: "Winner Adventure"
-  }), /*#__PURE__*/_react.default.createElement("h2", null, "Results")), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement("h2", null, "Results")), /*#__PURE__*/_react.default.createElement("p", {
+    className: "scoreGuess"
+  }, "You got ", /*#__PURE__*/_react.default.createElement("span", {
     className: "score"
   }, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
     className: "recommendation-btn",

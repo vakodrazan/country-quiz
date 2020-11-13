@@ -68,6 +68,8 @@ button:hover {
     padding: 15px 36px;
     border: none;
     color: #fff;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .recommendation-btn {
@@ -113,10 +115,18 @@ button:hover {
 
 .final-result {
     text-align: center;
-
+    color: #1D355D;
+    
+    button {
+        color: #1D355D;
+        border: 2px solid #1D355D;
+        font-weight: 600;
+        font-size: 18px;
+    }
     h2 {
         margin: 0;
         padding: 10px;
+        font-size: 40px;
     }
 }
 
@@ -143,6 +153,11 @@ button:hover {
 
 .wrongBtn:hover {
     background-color: #EA8282;
+}
+
+.scoreGuess {
+    font-weight: 600;
+    font-size: 24px;
 }
 
 .score {
