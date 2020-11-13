@@ -1,5 +1,6 @@
 import React from "react";
 
+// List of the button for the answer options
 function AnswerOptions({randomOption, visibility, handleClick, handleClickNext }) {
     return (
         <>
