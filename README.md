@@ -87,6 +87,8 @@ You can find my demo in [country-quiz](https://country-quiz-noeline.netlify.app/
 
  - It was hard to get that render. Especially, to get the question and the right value of that.
  - This project taught me to think before coding because there are some logic we need to know before delving into code.
+ - I try to use hook context but I there was a problem with it.
+ - I also tried to add an alphabet with the option list but it didn't work.
 
 ### Built With
 
