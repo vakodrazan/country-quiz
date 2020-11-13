@@ -6,7 +6,7 @@ function Questions({random, correctAnswer}) {
             {random % 3 === 0 
                 ? 
                 <div> 
-                    <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                    <img className="flag-img" src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
                     <p>Which country does this flag belong to?</p>
                 </div>
                 : <p><strong>{correctAnswer.capital}</strong> is the capital city of</p>

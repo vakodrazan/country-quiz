@@ -29827,7 +29827,7 @@ function Header() {
   return /*#__PURE__*/_react.default.createElement("header", {
     className: "header"
   }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("img", {
-    className: "agventureImg",
+    className: "adventureImg",
     src: _undraw_adventure_4hum.default,
     alt: "Undraw adventure for human"
   }));
@@ -29854,6 +29854,7 @@ function Questions({
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "question"
   }, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+    className: "flag-img",
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
   }), /*#__PURE__*/_react.default.createElement("p", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is the capital city of"));

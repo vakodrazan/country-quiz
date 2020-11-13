@@ -106,7 +106,7 @@ button:hover {
     padding: 0;
   }
 }
-.header .agventureImg {
+.header .adventureImg {
   width: 30%;
 }
 
@@ -163,6 +163,12 @@ button:hover {
 
 button:disabled {
   cursor: not-allowed;
+}
+
+.flag-img {
+  width: 150px;
+  -webkit-filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.1));
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */
