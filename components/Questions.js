@@ -2,7 +2,7 @@ import React from "react";
 
 function Questions({random, correctAnswer}) {
     return (
-        <div>
+        <div className="question">
             {random % 5 === 0 
                 ? 
                 <div> 

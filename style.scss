@@ -1,7 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,200&display=swap');
+
+
 body {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     margin: 0;
     background-color: rgb(96, 96, 219);
     font-size: 18px;
+    font-weight: 400;
+}
+
+h1,
+h2, 
+h3 {
+    font-weight: 700;
+}
+
+.question {
+    font-weight: 700;
+    font-size: 24px;
+
+    strong {
+        font-size: 26px;
+        color: rgb(3, 3, 149);
+    }
 }
 
 .container {
@@ -35,6 +56,7 @@ button {
     border-radius: 12px;
     background-color: white;
     cursor: pointer;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 button:hover {
