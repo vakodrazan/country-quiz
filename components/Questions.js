@@ -3,7 +3,7 @@ import React from "react";
 function Questions({random, correctAnswer}) {
     return (
         <div className="question">
-            {random % 5 === 0 
+            {random % 3 === 0 
                 ? 
                 <div> 
                     <img src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
