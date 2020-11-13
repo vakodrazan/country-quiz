@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className="header">
             <h1>Country Quiz</h1>
-            <img className="agventureImg" src={undrawAdventure4hum} alt="Undraw adventure for human" />
+            <img className="adventureImg" src={undrawAdventure4hum} alt="Undraw adventure for human" />
         </header>
     )
 }
