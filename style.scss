@@ -34,6 +34,7 @@ button {
     font-size: 18px;
     border-radius: 12px;
     background-color: white;
+    cursor: pointer;
 }
 
 button:hover {
@@ -126,4 +127,8 @@ button:hover {
     font-size: 2rem;
     font-weight: 700;
     color: rgb(3, 202, 103);
+}
+
+button:disabled {
+    cursor: not-allowed;
 }
