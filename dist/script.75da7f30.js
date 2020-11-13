@@ -29797,7 +29797,7 @@ function AnswerOptions({
     key: answer.numericCode + index,
     value: answer.name,
     onClick: handleClick
-  }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
+  }, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D", " ", answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
     style: visibility,
     className: "random-btn",
     onClick: handleClickNext
@@ -29929,7 +29929,7 @@ function useCountryQuiz() {
 
   const [visibility, setVisibility] = (0, _react.useState)({
     display: "none"
-  }); // for the next buttons
+  }); // for the next button
   // Fetch the data from the API
 
   async function fetchData() {

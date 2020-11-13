@@ -11,7 +11,7 @@ function useCountryQuiz() {
     const [random, setRandom] = useState(0); // how many times has it rendered
     const [goodGuess, setGoodGuess] = useState(0); // score
     const [isCorrect, setIsCorrect] = useState(true); // this is for the choosen answer
-    const [visibility, setVisibility] = useState({display: "none"});// for the next buttons
+    const [visibility, setVisibility] = useState({display: "none"});// for the next button
 
     // Fetch the data from the API
     async function fetchData() {
