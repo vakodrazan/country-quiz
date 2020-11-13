@@ -67,20 +67,38 @@ Template for your readme :
 
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
--   Where can I see your demo?
--   What was your experience?
--   What have you learned/improved?
--   Your wisdom? :)
+ ### Where can I see your demo?
+
+You can find my demo in [country-quiz](https://country-quiz-noeline.netlify.app/).
+
+ ### What was your experience?
+
+ -It was hard to fetch the data from the API. 
+ - I noticed that we need to run the random just once at the beginning. 
+ - Also, we need to be creative to get the flag and the capital randomly.
+ - I had a trouble to get each attribute from each object. But then, I noticed that I need to pass an argument and a parameter when calling it.
+
+ ### What have you learned/improved?
+ - I have learnt how to random and only show four of the item form a 250 item from the API. 
+ - I learnt that we can have an `ol` or `ul` that has a different type such as `type="A"`.
+ - Before it was not clear for me how to use index when mapping. But in this project, sometime I got two item that has the same key so I have to find out what I should do to avoid that. Then I came up with an idea that I could use the unique code and add the index with it.
+
+ ### Your wisdom? :)
+
+ - It was hard to get that render. Especially, to get the question and the right value of that.
+ - This project taught me to think before coding because there are some logic we need to know before delving into code.
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
-
 -   [React](https://reactjs.org/)
+-   [Parcel](https://parceljs.org/)
+-   [Sass](https://sass-lang.com/)
 
 ## Features
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
+-[Github](https://github.com/vakodrazan/country-quiz)
 
 ## How To Use
 
@@ -96,15 +114,15 @@ $ git clone https://github.com/your-user-name/your-project-name
 $ npm install
 
 # Run the app
-$ npm start
+$ npm start or $ parcel index.html
 ```
 
 ## Acknowledgements
-
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
+
 
 ## Contact
 
--   Website [your-website.com](https://{your-web-site-link})
--   GitHub [@your-username](https://{github.com/your-usermame})
+-   Website [your-website.com](https://country-quiz-noeline.netlify.app/)
+-   GitHub [@your-username](https://github.com/vakodrazan/country-quiz)
 -   Twitter [@your-twitter](https://{twitter.com/your-username})
