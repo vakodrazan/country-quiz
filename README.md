@@ -67,6 +67,11 @@ Template for your readme :
 
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
+![first-page](./assets/country-quiz-1.png)
+![first-page](./assets/country-quiz-mouseover.png)
+![first-page](./assets/country-quiz-wrong-choice.png)
+![first-page](./assets/country-quiz-recommendation.png)
+
  ### Where can I see your demo?
 
 You can find my demo in [country-quiz](https://country-quiz-noeline.netlify.app/).
