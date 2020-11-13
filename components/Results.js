@@ -10,7 +10,7 @@ function Results({goodGuess, setGoodGuess, setIsCorrect, fetchData}) {
                 <h2>Results</h2>
             </header>
             <p className="scoreGuess">
-                You got <span className="score">{goodGuess}</span> correct answers
+                You got <span className="score">{goodGuess}</span> correct {goodGuess < 2 ? "answer" : "answers"}
             </p>
             <button
                 className="recommendation-btn"

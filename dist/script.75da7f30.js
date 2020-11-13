@@ -29893,7 +29893,7 @@ function Results({
     className: "scoreGuess"
   }, "You got ", /*#__PURE__*/_react.default.createElement("span", {
     className: "score"
-  }, goodGuess), " correct answers"), /*#__PURE__*/_react.default.createElement("button", {
+  }, goodGuess), " correct ", goodGuess < 2 ? "answer" : "answers"), /*#__PURE__*/_react.default.createElement("button", {
     className: "recommendation-btn",
     onClick: () => {
       setIsCorrect(true);
