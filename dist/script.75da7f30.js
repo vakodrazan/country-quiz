@@ -29797,7 +29797,7 @@ function AnswerOptions({
     key: answer.numericCode + index,
     value: answer.name,
     onClick: handleClick
-  }, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D", " ", answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
+  }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
     style: visibility,
     className: "random-btn",
     onClick: handleClickNext

@@ -6,9 +6,7 @@ function AnswerOptions({randomOption, visibility, handleClick, handleClickNext }
             <div>
                 <div className="options">
                     {randomOption.map((answer, index) => (
-                        <button className="option option-btn" key={answer.numericCode + index} value={answer.name} onClick={handleClick} >
-                            {index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"} {answer.name}
-                        </button>
+                        <button className="option option-btn" key={answer.numericCode + index} value={answer.name} onClick={handleClick} >{answer.name}</button>
                     ))}
                 </div>
             </div>
