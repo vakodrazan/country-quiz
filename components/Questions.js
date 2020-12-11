@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../pages/Context";
 
-function Questions({random, correctAnswer}) {
+function Questions() {
+    const { random, correctAnswer } = useContext(Context)
     return (
         <div className="question">
             {random % 3 === 0 

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../pages/Context";
 
 // List of the button for the answer options
-function AnswerOptions({randomOption, visibility, handleClick, handleClickNext }) {
+function AnswerOptions() {
+    const { randomOption, visibility, handleClick, handleClickNext } = useContext(Context)
     return (
         <>
             <div>

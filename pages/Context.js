@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 
 // Do all the logic in this file
 
+const Context = createContext();
+
 const COUNTRY_URL = "https://restcountries.eu/rest/v2/all";
-function useCountryQuiz() {
+function ContextProvider({ children }) {
     // All the variables
     const [countryQuiz, setCountryQuiz] = useState([]); // full list of country info
     let [randomOption, setRandomOption] = useState([]); // all the list options
@@ -12,6 +14,7 @@ function useCountryQuiz() {
     const [goodGuess, setGoodGuess] = useState(0); // score
     const [isCorrect, setIsCorrect] = useState(true); // this is for the choosen answer
     const [visibility, setVisibility] = useState({display: "none"});// for the next button
+    const optionEl = useRef(null)
 
     // Fetch the data from the API
     async function fetchData() {
@@ -91,19 +94,25 @@ function useCountryQuiz() {
         }, 200);
     }
 
-    return [
-        countryQuiz,
-        random,
-        correctAnswer,
-        goodGuess,
-        randomOption,
-        visibility,
-        setGoodGuess,
-        setIsCorrect,
-        handleClick,
-        fetchData,
-        handleClickNext
-    ]
+    return (
+    <Context.Provider 
+        value={{ 
+            countryQuiz,
+            random,
+            correctAnswer,
+            goodGuess,
+            randomOption,
+            visibility,
+            setGoodGuess,
+            setIsCorrect,
+            handleClick,
+            fetchData,
+            handleClickNext 
+        }}
+    >
+        {children}
+    </Context.Provider>
+    )
 }
 
-export default useCountryQuiz;
+export { ContextProvider, Context};

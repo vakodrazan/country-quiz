@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../pages/Context";
 import winnerAdventure from "../undraw_winners_ao2o 2.svg"
 
 // Get this result when the guess is wrong
-function Results({goodGuess, setGoodGuess, setIsCorrect, fetchData}) {
+function Results() {
+    const { goodGuess, setGoodGuess, setIsCorrect, fetchData } = useContext(Context)
     return (
         <section className="final-result">
             <header>

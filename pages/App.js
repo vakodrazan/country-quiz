@@ -1,24 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import AnswerOptions from "../components/AnswerOptions";
 import Header from "../components/Header";
 import Questions from "../components/Questions";
 import Results from "../components/Results";
-import useCountryQuiz from "./useCountryQuiz";
+import { Context } from "./Context";
 
 function App() {
-    const [countryQuiz,
-        random,
-        correctAnswer,
-        goodGuess,
-        randomOption,
-        visibility,
-        setGoodGuess,
-        setIsCorrect,
-        handleClick,
-        fetchData,
-        handleClickNext
-    ] = useCountryQuiz();
-
+    const { countryQuiz } = useContext(Context)
     return (
         <div className="container">
             <main>
@@ -27,21 +15,11 @@ function App() {
                     {countryQuiz 
                         ? (
                             <>
-                                <Questions random={random} correctAnswer={correctAnswer} />
-                                <AnswerOptions 
-                                    randomOption={randomOption} 
-                                    visibility={visibility}
-                                    handleClick={handleClick} 
-                                    handleClickNext={handleClickNext}
-                                />
+                                <Questions />
+                                <AnswerOptions />
                             </>
                         ) 
-                        : <Results 
-                            goodGuess={goodGuess} 
-                            setGoodGuess={setGoodGuess}
-                            setIsCorrect={setIsCorrect} 
-                            fetchData={fetchData} 
-                        /> 
+                        : <Results /> 
                     }
                 </article>
             </main>
