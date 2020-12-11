@@ -29885,12 +29885,12 @@ function ContextProvider({
 
 
   function handleClickNext() {
-    // when the choosen answer is wrong, reset the list and show another recommendation
-    if (isCorrect === false) {
-      setCountryQuiz(null);
-    } else {
+    if (isCorrect) {
       // If it's true carry on with the quiz
       selectRandomCountry(countryQuiz);
+    } else {
+      // when the choosen answer is wrong, reset the list and show another recommendation
+      setCountryQuiz(null);
     } // wait for sometime after clicking the button and hide it 
 
 

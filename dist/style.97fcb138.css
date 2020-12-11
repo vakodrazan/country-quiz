@@ -2,9 +2,12 @@
 body {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   margin: 0;
-  background-color: #6060db;
   font-size: 18px;
   font-weight: 400;
+  background-image: url("/background.e3ad310f.png");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  align-items: center;
 }
 
 h1,
@@ -169,6 +172,21 @@ button:disabled {
   width: 150px;
   -webkit-filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.1));
   filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.1));
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  color: #F2F2F2;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */
