@@ -14,7 +14,7 @@ function ContextProvider({ children }) {
     const [goodGuess, setGoodGuess] = useState(0); // score
     const [isCorrect, setIsCorrect] = useState(true); // this is for the choosen answer
     const [visibility, setVisibility] = useState({display: "none"});// for the next button
-    const optionEl = useRef(null)
+    const optionEl = useRef(null);
 
     // Fetch the data from the API
     async function fetchData() {
@@ -103,6 +103,7 @@ function ContextProvider({ children }) {
             goodGuess,
             randomOption,
             visibility,
+            optionEl,
             setGoodGuess,
             setIsCorrect,
             handleClick,

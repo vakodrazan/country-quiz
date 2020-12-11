@@ -29909,6 +29909,7 @@ function ContextProvider({
       goodGuess,
       randomOption,
       visibility,
+      optionEl,
       setGoodGuess,
       setIsCorrect,
       handleClick,
