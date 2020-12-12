@@ -6,12 +6,13 @@ import Results from "../components/Results";
 import { Context } from "./Context";
 
 function App() {
-    const { countryQuiz } = useContext(Context)
+    const { countryQuiz, loading } = useContext(Context)
     return (
         <div className="container">
             <main>
                 <Header />
                 <article className="article">
+                    {loading && <h2>Loading...</h2>}
                     {countryQuiz 
                         ? (
                             <>

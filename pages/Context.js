@@ -15,6 +15,7 @@ function ContextProvider({ children }) {
     const [isCorrect, setIsCorrect] = useState(true); // this is for the choosen answer
     const [visibility, setVisibility] = useState({display: "none"});// for the next button
     const optionEl = useRef(null);
+    const [loading, setLoading] = useState(true);
 
     // Fetch the data from the API
     async function fetchData() {
@@ -22,6 +23,7 @@ function ContextProvider({ children }) {
         const data = await res.json();
         setCountryQuiz(data);
         selectRandomCountry(data);
+        setLoading(false)
     }
     
     useEffect(() => {
@@ -104,6 +106,7 @@ function ContextProvider({ children }) {
             randomOption,
             visibility,
             optionEl,
+            loading,
             setGoodGuess,
             setIsCorrect,
             handleClick,

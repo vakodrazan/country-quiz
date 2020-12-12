@@ -29812,13 +29812,15 @@ function ContextProvider({
     display: "none"
   }); // for the next button
 
-  const optionEl = (0, _react.useRef)(null); // Fetch the data from the API
+  const optionEl = (0, _react.useRef)(null);
+  const [loading, setLoading] = (0, _react.useState)(true); // Fetch the data from the API
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
     const data = await res.json();
     setCountryQuiz(data);
     selectRandomCountry(data);
+    setLoading(false);
   }
 
   (0, _react.useEffect)(() => {
@@ -29910,6 +29912,7 @@ function ContextProvider({
       randomOption,
       visibility,
       optionEl,
+      loading,
       setGoodGuess,
       setIsCorrect,
       handleClick,
@@ -30097,13 +30100,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function App() {
   const {
-    countryQuiz
+    countryQuiz,
+    loading
   } = (0, _react.useContext)(_Context.Context);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("article", {
     className: "article"
-  }, countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Questions.default, null), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, null)) : /*#__PURE__*/_react.default.createElement(_Results.default, null))));
+  }, loading && /*#__PURE__*/_react.default.createElement("h2", null, "Loading..."), countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Questions.default, null), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, null)) : /*#__PURE__*/_react.default.createElement(_Results.default, null))));
 }
 
 var _default = App;
