@@ -11,7 +11,7 @@ function Questions() {
                     <img className="flag-img" src={correctAnswer.flag} alt={`This is ${correctAnswer.name} flag`} /> 
                     <p>Which country does this flag belong to?</p>
                 </div>
-                : <p><strong>{correctAnswer.capital}</strong> is the capital city of</p>
+                : <p>{correctAnswer.capital} is the capital city of</p>
             }
         </div>
     )

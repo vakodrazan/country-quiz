@@ -29952,7 +29952,7 @@ function AnswerOptions() {
     key: answer.numericCode + index,
     value: answer.name,
     onClick: handleClick
-  }, answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), " ", answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
     style: visibility,
     className: "random-btn",
     onClick: handleClickNext
@@ -30016,7 +30016,7 @@ function Questions() {
     className: "flag-img",
     src: correctAnswer.flag,
     alt: `This is ${correctAnswer.name} flag`
-  }), /*#__PURE__*/_react.default.createElement("p", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, correctAnswer.capital), " is the capital city of"));
+  }), /*#__PURE__*/_react.default.createElement("p", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("p", null, correctAnswer.capital, " is the capital city of"));
 }
 
 var _default = Questions;
@@ -30154,7 +30154,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49891" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51880" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

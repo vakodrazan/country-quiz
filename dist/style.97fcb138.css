@@ -10,6 +10,10 @@ body {
   align-items: center;
 }
 
+main {
+  padding-bottom: 243px;
+}
+
 h1,
 h2,
 h3 {
@@ -19,9 +23,6 @@ h3 {
 .question {
   font-weight: 700;
   font-size: 24px;
-}
-.question strong {
-  font-size: 26px;
   color: #030395;
 }
 
@@ -31,7 +32,6 @@ h3 {
 @media (min-width: 650px) {
   .container {
     max-width: 650px;
-    padding: 0;
     margin: auto;
   }
 }
@@ -45,6 +45,7 @@ p {
   padding: 68px 32px;
   border-radius: 24px;
   background-color: #fff;
+  max-width: 464px;
 }
 
 img {
@@ -62,6 +63,13 @@ button {
 
 button:hover {
   background-color: #F9A826;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+button:focus {
+  outline: none;
 }
 
 .random-btn {
@@ -92,7 +100,6 @@ button:hover {
 
 .header {
   display: flex;
-  justify-content: space-between;
   position: relative;
   top: 42px;
 }
@@ -134,7 +141,9 @@ button:hover {
   color: #fff;
   background-image: url("/done-24px.b973f9af.svg");
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: 95%;
+  border: none;
+  padding-right: 30px;
 }
 
 .correctBtn:hover {
@@ -146,7 +155,9 @@ button:hover {
   color: #fff;
   background-image: url("/close-24px.a4910dcd.svg");
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: 95%;
+  border: none;
+  padding-right: 30px;
 }
 
 .wrongBtn:hover {
@@ -169,7 +180,8 @@ button:disabled {
 }
 
 .flag-img {
-  width: 150px;
+  width: 84px;
+  height: 54px;
   -webkit-filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.1));
   filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.1));
 }
