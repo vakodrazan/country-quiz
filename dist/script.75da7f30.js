@@ -29859,7 +29859,7 @@ function ContextProvider({
     const buttons = document.getElementsByClassName("option");
 
     for (let i = 0; i < buttons.length; i++) {
-      if (buttons[i].textContent === correctAnswer.name) {
+      if (buttons[i].value === correctAnswer.name) {
         buttons[i].classList.add("correctBtn");
       }
     }
@@ -29870,17 +29870,17 @@ function ContextProvider({
 
     if (winCountry === userGuess) {
       setIsCorrect(true);
-      e.target.classList.add("correctBtn");
+      e.currentTarget.classList.add("correctBtn");
       setVisibility({
-        display: "block"
+        display: "unset"
       });
       setGoodGuess(prevGuess => prevGuess + 1);
     } else {
       setIsCorrect(false);
-      e.target.classList.add("wrongBtn");
+      e.currentTarget.classList.add("wrongBtn");
       disableAll();
       setVisibility({
-        display: "block"
+        display: "unset"
       });
     }
   } // Handle the next button
@@ -29952,11 +29952,13 @@ function AnswerOptions() {
     key: answer.numericCode + index,
     value: answer.name,
     onClick: handleClick
-  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), " ", answer.name)))), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), " ", /*#__PURE__*/_react.default.createElement("span", null, answer.name))))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "next-button-container"
+  }, /*#__PURE__*/_react.default.createElement("button", {
     style: visibility,
     className: "random-btn",
     onClick: handleClickNext
-  }, "Next"));
+  }, "Next")));
 }
 
 var _default = AnswerOptions;
@@ -30154,7 +30156,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51880" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49907" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

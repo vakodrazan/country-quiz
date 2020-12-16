@@ -59,7 +59,7 @@ function ContextProvider({ children }) {
         // Change the color of the right answer when the choice is wrong
         const buttons = document.getElementsByClassName("option");
         for (let i = 0; i < buttons.length; i++) {
-            if (buttons[i].textContent === correctAnswer.name) {
+            if (buttons[i].value === correctAnswer.name) {
                 buttons[i].classList.add("correctBtn")
             }
         }
@@ -70,14 +70,14 @@ function ContextProvider({ children }) {
         // Other ways do something else
         if (winCountry === userGuess) {
             setIsCorrect(true);
-            e.target.classList.add("correctBtn")
-            setVisibility({display: "block"})
+            e.currentTarget.classList.add("correctBtn")
+            setVisibility({display: "unset"})
             setGoodGuess(prevGuess => prevGuess + 1);
         } else {
             setIsCorrect(false);
-            e.target.classList.add("wrongBtn");
+            e.currentTarget.classList.add("wrongBtn");
             disableAll();
-            setVisibility({display: "block"})
+            setVisibility({display: "unset"})
         }
     }
 

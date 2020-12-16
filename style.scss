@@ -47,6 +47,8 @@ p {
     border-radius: 24px;
     background-color: #fff;
     max-width: 464px;
+    display: grid;
+    gap: 24px;
 }
 
 img {
@@ -73,13 +75,20 @@ button:focus {
     outline: none;
 }
 
+.next-button-container {
+    text-align: right;
+}
+
 .random-btn {
-    background-color: #F9A826;
-    padding: 15px 36px;
+    width: 116px;
+    height: 56px;
     border: none;
-    color: #fff;
-    font-size: 18px;
+    background: #f9a826;
+    box-shadow: 0 2px 4px rgba(252,168,47,.4);
+    border-radius: 12px;
     font-weight: 700;
+    font-size: 18px;
+    color: #fff;
 }
 
 .recommendation-btn {
@@ -87,16 +96,23 @@ button:focus {
     color: #1D355D;
 }
 
+.options {
+    display: grid;
+    gap: 19px;
+}
+
 .option-btn {
     width: 100%;
     padding-top: 14px;
     padding-bottom: 14px;
-    padding-left: 25px;
+    padding-left: 19px;
     padding-right: 0;
     text-align: left;
-    margin-bottom: 1rem;
     border: 2px solid rgba(96, 102, 208, 0.7);
     color: rgba(96, 102, 208, 0.8);
+    display: grid;
+    grid-template-columns: .3fr 3fr;
+    gap: 10px;
 }
 
 .header {

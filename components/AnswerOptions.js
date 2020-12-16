@@ -9,11 +9,13 @@ function AnswerOptions() {
             <div>
                 <div className="options">
                     {randomOption.map((answer, index) => (
-                        <button className="option option-btn" key={answer.numericCode + index} value={answer.name} onClick={handleClick} ><span>{index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D" }</span> {answer.name}</button>
+                        <button className="option option-btn" key={answer.numericCode + index} value={answer.name} onClick={handleClick} ><span>{index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D" }</span> <span>{answer.name}</span></button>
                     ))}
                 </div>
             </div>
-            <button style={visibility} className="random-btn" onClick={handleClickNext}>Next</button>
+            <div className="next-button-container">
+                <button style={visibility} className="random-btn" onClick={handleClickNext}>Next</button>
+            </div>
         </>
     )
 }
