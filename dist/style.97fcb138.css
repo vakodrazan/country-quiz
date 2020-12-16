@@ -12,6 +12,7 @@ body {
 
 main {
   padding-bottom: 243px;
+  max-width: 464px;
 }
 
 h1,
@@ -102,6 +103,7 @@ button:focus {
 
 .option-btn {
   width: 100%;
+  height: 56px;
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 19px;
@@ -116,6 +118,7 @@ button:focus {
 
 .header {
   display: flex;
+  justify-content: space-between;
   position: relative;
   top: 42px;
 }
@@ -208,13 +211,6 @@ a {
 }
 a:hover {
   text-decoration: underline;
-}
-
-.footer {
-  text-align: center;
-  color: #F2F2F2;
-  font-weight: 600;
-  font-size: 18px;
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */

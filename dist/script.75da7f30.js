@@ -29812,8 +29812,8 @@ function ContextProvider({
     display: "none"
   }); // for the next button
 
-  const optionEl = (0, _react.useRef)(null);
-  const [loading, setLoading] = (0, _react.useState)(true); // Fetch the data from the API
+  const [loading, setLoading] = (0, _react.useState)(true);
+  const buttonRef = (0, _react.useRef)(null); // Fetch the data from the API
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29842,28 +29842,10 @@ function ContextProvider({
 
     setRandomOption(randomOptions);
     setRandom(Math.floor(Math.random() * countryQuiz.length));
-  } // Disabled the button after choosing the answer
-
-
-  const disableAll = () => {
-    let opt = document.getElementsByClassName("option");
-
-    for (let i = 0; i < 4; i++) {
-      opt[i].disabled = true;
-    }
-  }; // Handle the option button
+  } // Handle the option button
 
 
   function handleClick(e) {
-    // Change the color of the right answer when the choice is wrong
-    const buttons = document.getElementsByClassName("option");
-
-    for (let i = 0; i < buttons.length; i++) {
-      if (buttons[i].value === correctAnswer.name) {
-        buttons[i].classList.add("correctBtn");
-      }
-    }
-
     const winCountry = correctAnswer.name;
     const userGuess = e.target.value; // Check if the right answer and the value of the element clicked is the same
     // Other ways do something else
@@ -29878,7 +29860,7 @@ function ContextProvider({
     } else {
       setIsCorrect(false);
       e.currentTarget.classList.add("wrongBtn");
-      disableAll();
+      buttonRef.current.classList.add("correctBtn");
       setVisibility({
         display: "unset"
       });
@@ -29911,8 +29893,8 @@ function ContextProvider({
       goodGuess,
       randomOption,
       visibility,
-      optionEl,
       loading,
+      buttonRef,
       setGoodGuess,
       setIsCorrect,
       handleClick,
@@ -29943,7 +29925,9 @@ function AnswerOptions() {
     randomOption,
     visibility,
     handleClick,
-    handleClickNext
+    handleClickNext,
+    buttonRef,
+    correctAnswer
   } = (0, _react.useContext)(_Context.Context);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
@@ -29951,8 +29935,9 @@ function AnswerOptions() {
     className: "option option-btn",
     key: answer.numericCode + index,
     value: answer.name,
-    onClick: handleClick
-  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), " ", /*#__PURE__*/_react.default.createElement("span", null, answer.name))))), /*#__PURE__*/_react.default.createElement("div", {
+    onClick: handleClick,
+    ref: answer.name === correctAnswer.name ? buttonRef : null
+  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), /*#__PURE__*/_react.default.createElement("span", null, answer.name))))), /*#__PURE__*/_react.default.createElement("div", {
     className: "next-button-container"
   }, /*#__PURE__*/_react.default.createElement("button", {
     style: visibility,

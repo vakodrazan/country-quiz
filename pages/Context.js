@@ -14,8 +14,8 @@ function ContextProvider({ children }) {
     const [goodGuess, setGoodGuess] = useState(0); // score
     const [isCorrect, setIsCorrect] = useState(true); // this is for the choosen answer
     const [visibility, setVisibility] = useState({display: "none"});// for the next button
-    const optionEl = useRef(null);
     const [loading, setLoading] = useState(true);
+    const buttonRef = useRef(null);
 
     // Fetch the data from the API
     async function fetchData() {
@@ -46,24 +46,8 @@ function ContextProvider({ children }) {
         setRandom(Math.floor(Math.random() * countryQuiz.length));
     }
 
-    // Disabled the button after choosing the answer
-    const disableAll = () => {
-        let opt = document.getElementsByClassName("option");
-        for (let i = 0; i < 4; i++) {
-          opt[i].disabled = true;
-        }
-      };
-
     // Handle the option button
     function handleClick(e) {
-        // Change the color of the right answer when the choice is wrong
-        const buttons = document.getElementsByClassName("option");
-        for (let i = 0; i < buttons.length; i++) {
-            if (buttons[i].value === correctAnswer.name) {
-                buttons[i].classList.add("correctBtn")
-            }
-        }
-
         const winCountry = correctAnswer.name;
         const userGuess = e.target.value;
         // Check if the right answer and the value of the element clicked is the same
@@ -76,7 +60,7 @@ function ContextProvider({ children }) {
         } else {
             setIsCorrect(false);
             e.currentTarget.classList.add("wrongBtn");
-            disableAll();
+            buttonRef.current.classList.add("correctBtn")
             setVisibility({display: "unset"})
         }
     }
@@ -105,8 +89,8 @@ function ContextProvider({ children }) {
             goodGuess,
             randomOption,
             visibility,
-            optionEl,
             loading,
+            buttonRef,
             setGoodGuess,
             setIsCorrect,
             handleClick,
