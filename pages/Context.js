@@ -49,7 +49,7 @@ function ContextProvider({ children }) {
     // Handle the option button
     function handleClick(e) {
         const winCountry = correctAnswer.name;
-        const userGuess = e.target.value;
+        const userGuess = e.currentTarget.value;
         // Check if the right answer and the value of the element clicked is the same
         // Other ways do something else
         if (winCountry === userGuess) {
