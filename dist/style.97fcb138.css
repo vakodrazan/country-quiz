@@ -106,7 +106,6 @@ button:focus {
   width: 100%;
   height: 56px;
   font-weight: 500;
-  padding-top: 14px;
   padding-left: 19px;
   padding-right: 0;
   text-align: left;
@@ -115,6 +114,7 @@ button:focus {
   display: grid;
   grid-template-columns: 0.3fr 3fr;
   gap: 10px;
+  align-items: center;
 }
 .option-btn-content {
   padding-right: 10px;
