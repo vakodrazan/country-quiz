@@ -16,6 +16,7 @@ function ContextProvider({ children }) {
     const [visibility, setVisibility] = useState({display: "none"});// for the next button
     const [loading, setLoading] = useState(true);
     const buttonRef = useRef(null);
+    const [showNext, setShowNext] = useState(false)
 
     // Fetch the data from the API
     async function fetchData() {
@@ -50,6 +51,7 @@ function ContextProvider({ children }) {
     function handleClick(e) {
         const winCountry = correctAnswer.name;
         const userGuess = e.currentTarget.value;
+        setShowNext(true)
         // Check if the right answer and the value of the element clicked is the same
         // Other ways do something else
         if (winCountry === userGuess) {
@@ -74,6 +76,7 @@ function ContextProvider({ children }) {
             // when the choosen answer is wrong, reset the list and show another recommendation
             setCountryQuiz(null)
         }
+        setShowNext(false)
         // wait for sometime after clicking the button and hide it 
         setTimeout(() => {
             setVisibility({display: "none"})
@@ -91,6 +94,7 @@ function ContextProvider({ children }) {
             visibility,
             loading,
             buttonRef,
+            showNext,
             setGoodGuess,
             setIsCorrect,
             handleClick,

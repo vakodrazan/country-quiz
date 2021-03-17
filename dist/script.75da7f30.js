@@ -29813,7 +29813,8 @@ function ContextProvider({
   }); // for the next button
 
   const [loading, setLoading] = (0, _react.useState)(true);
-  const buttonRef = (0, _react.useRef)(null); // Fetch the data from the API
+  const buttonRef = (0, _react.useRef)(null);
+  const [showNext, setShowNext] = (0, _react.useState)(false); // Fetch the data from the API
 
   async function fetchData() {
     const res = await fetch(COUNTRY_URL);
@@ -29847,7 +29848,8 @@ function ContextProvider({
 
   function handleClick(e) {
     const winCountry = correctAnswer.name;
-    const userGuess = e.currentTarget.value; // Check if the right answer and the value of the element clicked is the same
+    const userGuess = e.currentTarget.value;
+    setShowNext(true); // Check if the right answer and the value of the element clicked is the same
     // Other ways do something else
 
     if (winCountry === userGuess) {
@@ -29875,8 +29877,9 @@ function ContextProvider({
     } else {
       // when the choosen answer is wrong, reset the list and show another recommendation
       setCountryQuiz(null);
-    } // wait for sometime after clicking the button and hide it 
+    }
 
+    setShowNext(false); // wait for sometime after clicking the button and hide it 
 
     setTimeout(() => {
       setVisibility({
@@ -29895,6 +29898,7 @@ function ContextProvider({
       visibility,
       loading,
       buttonRef,
+      showNext,
       setGoodGuess,
       setIsCorrect,
       handleClick,
@@ -29924,6 +29928,7 @@ function AnswerOptions() {
   const {
     randomOption,
     visibility,
+    showNext,
     handleClick,
     handleClickNext,
     buttonRef,
@@ -29932,12 +29937,15 @@ function AnswerOptions() {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
   }, randomOption.map((answer, index) => /*#__PURE__*/_react.default.createElement("button", {
+    disabled: showNext,
     className: "option option-btn",
     key: answer.numericCode + index,
     value: answer.name,
     onClick: handleClick,
     ref: answer.name === correctAnswer.name ? buttonRef : null
-  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), /*#__PURE__*/_react.default.createElement("span", null, answer.name))))), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), /*#__PURE__*/_react.default.createElement("span", {
+    className: "option-btn-content"
+  }, answer.name))))), /*#__PURE__*/_react.default.createElement("div", {
     className: "next-button-container"
   }, /*#__PURE__*/_react.default.createElement("button", {
     style: visibility,
@@ -30141,7 +30149,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49907" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54444" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

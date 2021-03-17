@@ -116,6 +116,9 @@ button:focus {
   grid-template-columns: 0.3fr 3fr;
   gap: 10px;
 }
+.option-btn-content {
+  padding-right: 10px;
+}
 
 .header {
   display: flex;
