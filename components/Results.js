@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context } from "../pages/Context";
-import winnerAdventure from "../undraw_winners_ao2o 2.svg"
 
 // Get this result when the guess is wrong
 function Results() {
@@ -8,7 +7,7 @@ function Results() {
     return (
         <section className="final-result">
             <header>
-                <img src={winnerAdventure} alt="Winner Adventure" />
+                <img src="/undraw_winners_ao2o 2.svg" alt="Winner Adventure" />
                 <h2>Results</h2>
             </header>
             <p className="scoreGuess">

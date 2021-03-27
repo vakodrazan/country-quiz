@@ -5,7 +5,7 @@ body {
     margin: 0;
     font-size: 18px;
     font-weight: 400;
-
+    line-height: 27px;
     background-image: url("./background.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,7 +14,6 @@ body {
 
 main {
     padding-bottom: 243px;
-    max-width: 464px;
 }
 
 h1,
@@ -27,29 +26,46 @@ h3 {
     font-weight: 700;
     font-size: 24px;
     color: rgb(3, 3, 149);
+    padding-bottom: 8px;
 }
 
 .container {
     padding: 12px;
+    max-height: 550px;
 
     @media (min-width: 650px) {
-        max-width: 650px;
+        max-width: 464px;
         margin: auto;
     }
 }
 
 p {
     margin: 0;
-    padding: 20px 0;
+    padding: 0;
 }
 
 .article {
-    padding: 68px 32px;
+    padding-top: 68px;
+    padding-bottom: 68px;
+    padding-left: 32px;
+    padding-right: 32px;
     border-radius: 24px;
     background-color: #fff;
     max-width: 464px;
-    display: grid;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
+}
+
+.adventureImg {
+    align-self: flex-end;
+    margin-right: -32px;
+    width: 162px;
+    height: 116px;
+    margin-top: -140px;
 }
 
 img {
@@ -59,6 +75,7 @@ img {
 
 button {
     font-size: 18px;
+    line-height: 27px;
     border-radius: 12px;
     background-color: white;
     line-height: 1;
@@ -91,17 +108,26 @@ button:focus {
     font-weight: 700;
     font-size: 18px;
     color: #fff;
+    line-height: 27px;
+    padding-right: 36px;
+    padding-left: 37px;
 }
 
 .recommendation-btn {
     padding: 18px 61px;
     color: #1D355D;
+    padding-left: 59px;
+    padding-right: 58px;
+    padding-top: 18px;
+    padding-bottom: 17px;
+    max-width: 209px;
 }
 
 .options {
     display: grid;
-    gap: 19px;
+    gap: 31px;
 }
+
 
 .option-btn {
     width: 100%;
@@ -114,41 +140,40 @@ button:focus {
     color: rgba(96, 102, 208, 0.8);
     display: grid;
     grid-template-columns: .3fr 3fr;
-    gap: 10px;
+    gap: 23px;
     align-items: center;
-
+    
     &-content {
-        padding-right: 10px;
+        padding-right: 17px;
     }
 }
 
+.alphabet {
+    max-width: 19px;
+}
+
 .header {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    top: 42px;
+    padding-bottom: 10px;
+    padding-top: 20px;
 
     h1 {
         color: white;
-        font-size: 24px;
+        font-size: 36px;
+        line-height: 52px;
         text-transform: uppercase;
         margin: 0;
         padding-bottom: 4rem;
         
         @media (min-width: 650px) {
-            font-size: 36px;
             padding: 0;
         }
-    }
-
-    .adventureImg {
-        width: 30%;
     }
 }
 
 .final-result {
     text-align: center;
     color: #1D355D;
+    padding-bottom: 33px;
     
     button {
         color: #1D355D;
@@ -158,8 +183,9 @@ button:focus {
     }
     h2 {
         margin: 0;
-        padding: 10px;
-        font-size: 40px;
+        padding-top: 72px;
+        font-size: 48px;
+        line-height: 72px;
     }
 }
 
@@ -193,8 +219,9 @@ button:focus {
 }
 
 .scoreGuess {
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 400;
+    font-size: 18px;
+    padding-bottom: 71px;
 }
 
 .score {

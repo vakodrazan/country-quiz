@@ -8,23 +8,24 @@ import { Context } from "./Context";
 function App() {
     const { countryQuiz, loading } = useContext(Context)
     return (
-        <div className="container">
-            <main>
+        <main>
+            <div className="container">
                 <Header />
                 <article className="article">
                     {loading && <h2>Loading...</h2>}
                     {countryQuiz 
                         ? (
-                            <>
+                            <div className="wrapper">
+                                <img className="adventureImg" src="undraw_adventure_4hum1.svg" alt="Undraw adventure for human" />
                                 <Questions />
                                 <AnswerOptions />
-                            </>
+                            </div>
                         ) 
                         : <Results /> 
                     }
                 </article>
-            </main>
-        </div>
+            </div>
+        </main>
     )
 }
 

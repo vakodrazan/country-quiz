@@ -29934,7 +29934,7 @@ function AnswerOptions() {
     buttonRef,
     correctAnswer
   } = (0, _react.useContext)(_Context.Context);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "options"
   }, randomOption.map((answer, index) => /*#__PURE__*/_react.default.createElement("button", {
     disabled: showNext,
@@ -29943,12 +29943,14 @@ function AnswerOptions() {
     value: answer.name,
     onClick: handleClick,
     ref: answer.name === correctAnswer.name ? buttonRef : null
-  }, /*#__PURE__*/_react.default.createElement("span", null, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), /*#__PURE__*/_react.default.createElement("span", {
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "alphabet"
+  }, index === 0 ? "A" : index === 1 ? "B" : index === 2 ? "C" : "D"), /*#__PURE__*/_react.default.createElement("span", {
     className: "option-btn-content"
-  }, answer.name))))), /*#__PURE__*/_react.default.createElement("div", {
+  }, answer.name)))), /*#__PURE__*/_react.default.createElement("div", {
+    style: visibility,
     className: "next-button-container"
   }, /*#__PURE__*/_react.default.createElement("button", {
-    style: visibility,
     className: "random-btn",
     onClick: handleClickNext
   }, "Next")));
@@ -29956,9 +29958,7 @@ function AnswerOptions() {
 
 var _default = AnswerOptions;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"undraw_adventure_4hum1.svg":[function(require,module,exports) {
-module.exports = "/undraw_adventure_4hum1.d63cfae0.svg";
-},{}],"components/Header.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29968,23 +29968,17 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _undraw_adventure_4hum = _interopRequireDefault(require("../undraw_adventure_4hum1.svg"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Header() {
   return /*#__PURE__*/_react.default.createElement("header", {
     className: "header"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"), /*#__PURE__*/_react.default.createElement("img", {
-    className: "adventureImg",
-    src: _undraw_adventure_4hum.default,
-    alt: "Undraw adventure for human"
-  }));
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country Quiz"));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../undraw_adventure_4hum1.svg":"undraw_adventure_4hum1.svg"}],"components/Questions.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"components/Questions.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30016,9 +30010,7 @@ function Questions() {
 
 var _default = Questions;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"undraw_winners_ao2o 2.svg":[function(require,module,exports) {
-module.exports = "/undraw_winners_ao2o 2.9c095601.svg";
-},{}],"components/Results.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"components/Results.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30029,10 +30021,6 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 
 var _Context = require("../pages/Context");
-
-var _undraw_winners_ao2o = _interopRequireDefault(require("../undraw_winners_ao2o 2.svg"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -30049,7 +30037,7 @@ function Results() {
   return /*#__PURE__*/_react.default.createElement("section", {
     className: "final-result"
   }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
-    src: _undraw_winners_ao2o.default,
+    src: "/undraw_winners_ao2o 2.svg",
     alt: "Winner Adventure"
   }), /*#__PURE__*/_react.default.createElement("h2", null, "Results")), /*#__PURE__*/_react.default.createElement("p", {
     className: "scoreGuess"
@@ -30067,7 +30055,7 @@ function Results() {
 
 var _default = Results;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js","../undraw_winners_ao2o 2.svg":"undraw_winners_ao2o 2.svg"}],"pages/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"pages/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30098,11 +30086,17 @@ function App() {
     countryQuiz,
     loading
   } = (0, _react.useContext)(_Context.Context);
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("article", {
+  }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("article", {
     className: "article"
-  }, loading && /*#__PURE__*/_react.default.createElement("h2", null, "Loading..."), countryQuiz ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Questions.default, null), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, null)) : /*#__PURE__*/_react.default.createElement(_Results.default, null))));
+  }, loading && /*#__PURE__*/_react.default.createElement("h2", null, "Loading..."), countryQuiz ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "wrapper"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "adventureImg",
+    src: "undraw_adventure_4hum1.svg",
+    alt: "Undraw adventure for human"
+  }), /*#__PURE__*/_react.default.createElement(_Questions.default, null), /*#__PURE__*/_react.default.createElement(_AnswerOptions.default, null)) : /*#__PURE__*/_react.default.createElement(_Results.default, null))));
 }
 
 var _default = App;
@@ -30149,7 +30143,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56094" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
