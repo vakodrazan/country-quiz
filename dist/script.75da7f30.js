@@ -30037,6 +30037,7 @@ function Results() {
   return /*#__PURE__*/_react.default.createElement("section", {
     className: "final-result"
   }, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("img", {
+    className: "winning-image",
     src: "/undraw_winners_ao2o 2.svg",
     alt: "Winner Adventure"
   }), /*#__PURE__*/_react.default.createElement("h2", null, "Results")), /*#__PURE__*/_react.default.createElement("p", {

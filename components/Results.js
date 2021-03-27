@@ -7,7 +7,7 @@ function Results() {
     return (
         <section className="final-result">
             <header>
-                <img src="/undraw_winners_ao2o 2.svg" alt="Winner Adventure" />
+                <img className="winning-image" src="/undraw_winners_ao2o 2.svg" alt="Winner Adventure" />
                 <h2>Results</h2>
             </header>
             <p className="scoreGuess">

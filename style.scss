@@ -12,8 +12,15 @@ body {
     align-items: center;
 }
 
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 main {
-    padding-bottom: 243px;
+    transform: scale(0.8);
 }
 
 h1,
@@ -31,12 +38,7 @@ h3 {
 
 .container {
     padding: 12px;
-    max-height: 550px;
-
-    @media (min-width: 650px) {
-        max-width: 464px;
-        margin: auto;
-    }
+    max-width: 464px;
 }
 
 p {
@@ -69,7 +71,6 @@ p {
 }
 
 img {
-    width: 250px;
     max-width: 100%;
 }
 
@@ -92,6 +93,12 @@ button:hover {
 
 button:focus {
     outline: none;
+}
+
+
+.winning-image {
+    width: 238px;
+    max-height: 129px;
 }
 
 .next-button-container {
