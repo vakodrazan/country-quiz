@@ -53,7 +53,10 @@ p {
     padding-right: 32px;
     border-radius: 24px;
     background-color: #fff;
-    max-width: 464px;
+
+    @media (min-width: 650px) {
+        max-width: 464px;
+    }
 }
 
 .wrapper {
