@@ -30056,7 +30056,29 @@ function Results() {
 
 var _default = Results;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"pages/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../pages/Context":"pages/Context.js"}],"pages/scale.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = scale;
+
+function scale(scale, container) {
+  // const container = document.querySelector(".container");
+  console.log(container.current.style.scale); // console.log(container.style);
+
+  if (scale > 0 && container.current.clientHeight > window.outerHeight) {
+    // console.log(scale);
+    container.current.style.scale = scale - 0.1; // console.log(container.style.scale);
+
+    return scale - 0.1;
+  } // console.log(container.style.scale);
+
+
+  return scale;
+}
+},{}],"pages/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30076,6 +30098,8 @@ var _Results = _interopRequireDefault(require("../components/Results"));
 
 var _Context = require("./Context");
 
+var _scale = _interopRequireDefault(require("./scale"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -30087,8 +30111,15 @@ function App() {
     countryQuiz,
     loading
   } = (0, _react.useContext)(_Context.Context);
+  const scaleContainer = (0, _react.useRef)(null);
+  const [scale, setScale] = (0, _react.useState)(1);
+  (0, _react.useEffect)(() => {
+    setScale(() => (0, _scale.default)(scale, scaleContainer));
+  }); // console.log(scale);
+
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "container"
+    className: "container",
+    ref: scaleContainer
   }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("article", {
     className: "article"
   }, loading && /*#__PURE__*/_react.default.createElement("h2", null, "Loading..."), countryQuiz ? /*#__PURE__*/_react.default.createElement("div", {
@@ -30102,7 +30133,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Header":"components/Header.js","../components/Questions":"components/Questions.js","../components/Results":"components/Results.js","./Context":"pages/Context.js"}],"script.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/AnswerOptions":"components/AnswerOptions.js","../components/Header":"components/Header.js","../components/Questions":"components/Questions.js","../components/Results":"components/Results.js","./Context":"pages/Context.js","./scale":"pages/scale.js"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -30144,7 +30175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56094" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51490" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

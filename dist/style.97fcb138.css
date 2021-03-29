@@ -38,6 +38,7 @@ h3 {
 .container {
   padding: 12px;
   max-width: 464px;
+  scale: 1;
 }
 
 p {
@@ -53,6 +54,11 @@ p {
   border-radius: 24px;
   background-color: #fff;
   max-width: 464px;
+}
+@media (min-width: 650px) {
+  .article {
+    width: 464px;
+  }
 }
 
 .wrapper {
