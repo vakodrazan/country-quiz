@@ -1,6 +1,6 @@
 # Country Quiz
 
-I create a country quiz app using an API, and use React to handle the frontend. I use react hooks. I store all the logic in a context file  and I can just crab them wherever I want it.
+I create a country quiz app using an API, and use React to handle the frontend. I use react hooks. I store all the logic in a context file to make it easy to pass in any component I want.
 
 ![image](./assets/country-quiz-1.png)
 ![image](./assets/country-quiz-mouseover.png)
@@ -14,18 +14,11 @@ I create a country quiz app using an API, and use React to handle the frontend. 
 
 **Design** : https://www.figma.com/file/Gw0ZNBbYN8asqFlZWy3jG1
 
-**Live app** : https://country-quiz-noeline.netlify.app/
-
- ## Experience:
-
- It was kind of hard to find the right URL to fetch from the api but there are some tips that they give based on what url we want to fetch.
-
  ## Structure
 
  - I need to random the question by four item each time and including the correct answer for the question. 
- - When the choice is right just give a new random when clicking the next button. But show the score and reset it when clicking a button when the choice the user made is wrong.
+ - When the choice is right just it will fetch a new random question when clicking the next button. But it will show the score and ask the user if they still want to continue it by clicking the try again button when the choice the user selected is wrong.
  - Also, highlight the correct answer or the answer clicked after clicking on each one of them.
- - All the logic stayed in the context file.
 
 ### Built With
 
@@ -39,6 +32,10 @@ I create a country quiz app using an API, and use React to handle the frontend. 
  To get started with this project. Clone this [repository](https://github.com/vakodrazan/country-quiz). You'll need react with it so just do the following steps.
 
 ## Prerequisite
+
+If there is no parcel set up yet in the VSCode 
+
+Run this command: `npm install -g parcel-bundler`.
 
 ```bash
 # Clone this repository to your local computer
