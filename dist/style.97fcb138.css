@@ -12,14 +12,13 @@ body {
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 10px;
 }
-
-main {
-  transform: scale(0.8);
+@media (min-width: 650px) {
+  .content {
+    padding: 0;
+  }
 }
 
 h1,
@@ -36,8 +35,19 @@ h3 {
 }
 
 .container {
-  padding: 12px;
+  padding: 15px;
   max-width: 464px;
+  display: grid;
+  align-content: center;
+  height: 100%;
+  margin: auto;
+}
+@media (min-width: 650px) {
+  .container {
+    padding: 0;
+    height: 100vh;
+    max-height: 100vh;
+  }
 }
 
 p {
@@ -56,6 +66,12 @@ p {
 @media (min-width: 650px) {
   .article {
     max-width: 464px;
+    max-height: 559px;
+  }
+}
+@media (min-width: 1440px) {
+  .article {
+    width: 464px;
   }
 }
 
