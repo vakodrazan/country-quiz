@@ -11,7 +11,7 @@ function App() {
         <main>
             <div className="container">
                 <Header />
-                <article className="article">
+                <div className="content-wrapper">
                     {loading && <h2>Loading...</h2>}
                     {countryQuiz 
                         ? (
@@ -23,7 +23,7 @@ function App() {
                         ) 
                         : <Results /> 
                     }
-                </article>
+                </div>
             </div>
         </main>
     )

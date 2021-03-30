@@ -55,7 +55,7 @@ p {
   padding: 0;
 }
 
-.article {
+.content-wrapper {
   padding-top: 68px;
   padding-bottom: 68px;
   padding-left: 32px;
@@ -64,13 +64,13 @@ p {
   background-color: #fff;
 }
 @media (min-width: 650px) {
-  .article {
+  .content-wrapper {
     max-width: 464px;
     max-height: 559px;
   }
 }
 @media (min-width: 1440px) {
-  .article {
+  .content-wrapper {
     width: 464px;
   }
 }

@@ -30089,8 +30089,8 @@ function App() {
   } = (0, _react.useContext)(_Context.Context);
   return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("article", {
-    className: "article"
+  }, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("div", {
+    className: "content-wrapper"
   }, loading && /*#__PURE__*/_react.default.createElement("h2", null, "Loading..."), countryQuiz ? /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/_react.default.createElement("img", {
