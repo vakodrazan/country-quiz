@@ -8,7 +8,7 @@ function Questions() {
             {random % 3 === 0 
                 ? 
                 <div> 
-                    <img className="flag-img" src={correctAnswer?.flag} alt={`This is ${correctAnswer.name} flag`} /> 
+                    <img className="flag-img" src={correctAnswer?.flag} alt={`Flag is loading`} /> 
                     <p>Which country does this flag belong to?</p>
                 </div>
                 : <p>{correctAnswer.capital} is the capital city of</p>

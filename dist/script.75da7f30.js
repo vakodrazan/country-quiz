@@ -30004,7 +30004,7 @@ function Questions() {
   }, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     className: "flag-img",
     src: correctAnswer?.flag,
-    alt: `This is ${correctAnswer.name} flag`
+    alt: `Flag is loading`
   }), /*#__PURE__*/_react.default.createElement("p", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("p", null, correctAnswer.capital, " is the capital city of"));
 }
 
