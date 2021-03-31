@@ -13,7 +13,7 @@ function App() {
                 <Header />
                 <div className="content-wrapper">
                     {loading && <h2>Loading...</h2>}
-                    {countryQuiz 
+                    {countryQuiz
                         ? (
                             <div className="wrapper">
                                 <img className="adventureImg" src="undraw_adventure_4hum1.svg" alt="Undraw adventure for human" />

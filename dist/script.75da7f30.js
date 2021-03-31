@@ -30003,7 +30003,7 @@ function Questions() {
     className: "question"
   }, random % 3 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
     className: "flag-img",
-    src: correctAnswer.flag,
+    src: correctAnswer?.flag,
     alt: `This is ${correctAnswer.name} flag`
   }), /*#__PURE__*/_react.default.createElement("p", null, "Which country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("p", null, correctAnswer.capital, " is the capital city of"));
 }
@@ -30144,7 +30144,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56684" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50022" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
